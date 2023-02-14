@@ -1,0 +1,7 @@
+
+{
+    "Username": "standard_user",
+    "Password": "secret_sauce",
+    "SuccessMessage": "Products",
+    "Productname": ["Sauce Labs Backpack","Sauce Labs Fleece Jacket", "Sauce Labs Bike Light"]
+}
