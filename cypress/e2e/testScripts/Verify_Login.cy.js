@@ -10,9 +10,9 @@ describe("Login suite", () => {
 
     it("verify login", function () {
 
-        const productpage = new ProductPage()
+        const productPage = new ProductPage()
         cy.Login(this.logindata.Username, this.logindata.Password)
-        productpage.ValidateProductPage(this.logindata.SuccessMessage)
+        productPage.ValidateProductPage(this.logindata.SuccessMessage)
        
     })
   

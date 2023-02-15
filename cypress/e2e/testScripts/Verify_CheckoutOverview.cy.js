@@ -6,7 +6,7 @@ import { InformationPage } from "../../Pages/InformationPage"
 import { Checkout_OverviewPage } from "../../Pages/Checkout_OverviewPage"
 
 
-describe("product page", () => {
+describe("Checkout Overview page", () => {
     beforeEach(function () {
         cy.launchApplication()
         cy.fixture("LoginCredentialsTestData").then(function (logindata) { this.logindata = logindata })
@@ -16,34 +16,34 @@ describe("product page", () => {
     })
     
 
-    it("Validating selected product is present in the checkout page", function () {
+    it("Verifying product quantity, product price and Total price", function () {
 
 
-        const productpage = new ProductPage()
-        const yourcartpage = new YourCartPage()
-        const informationpage = new InformationPage()
-        const checkoutoverview = new Checkout_OverviewPage()
+        const productPage = new ProductPage()
+        const yourcartPage = new YourCartPage()
+        const informationPage = new InformationPage()
+        const checkoutOverview = new Checkout_OverviewPage()
 
         cy.Login(this.logindata.Username, this.logindata.Password)
 
-        productpage.ValidateProductPage(this.productpagedata.SuccessMessage)
-        productpage.getSelectProducts(this.productpagedata.Productname)
-        productpage.getClick_CartButton()
+        productPage.ValidateProductPage(this.productpagedata.SuccessMessage)
+        productPage.getSelectProducts(this.productpagedata.Productname)
+        productPage.getClick_CartButton()
 
-        yourcartpage.getValidate_CheckoutPage(this.yourcartdata.YourCartLogo)
+        yourcartPage.getValidate_CheckoutPage(this.yourcartdata.YourCartLogo)
         this.productpagedata.Productname.forEach(element => {
             cy.validateProduct(element)
         });
-        yourcartpage.getClick_CheckoutButton()
+        yourcartPage.getClick_CheckoutButton()
 
-        informationpage.getValidate_Informationpage(this.informationpagedata.OverviewMessage)
-        informationpage.getInformation(this.informationpagedata.Firstname, this.informationpagedata.Lastname, this.informationpagedata.ZipCode)
-        informationpage.getClick_Continue()
+        informationPage.getValidate_Informationpage(this.informationpagedata.OverviewMessage)
+        informationPage.getInformation(this.informationpagedata.Firstname, this.informationpagedata.Lastname, this.informationpagedata.ZipCode)
+        informationPage.getClick_Continue()
 
-        checkoutoverview.getValidate_CheckoutOverview()
-        checkoutoverview.getValidate_ProductQuantity()
-        checkoutoverview.getValidate_TotalPrice()
-        checkoutoverview.getClick_FinishButton()
+        checkoutOverview.getValidate_CheckoutOverview()
+        checkoutOverview.getValidate_ProductQuantity()
+        checkoutOverview.getValidate_TotalPrice()
+        checkoutOverview.getClick_FinishButton()
 
 
     })

@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-02-15T12:32:23.034Z",
+    "end": "2023-02-15T12:32:32.104Z",
+    "duration": 9070,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "9b549577-0f28-4d88-9553-f464a1e04cf0",
+      "title": "",
+      "fullFile": "cypress\\e2e\\testScripts\\Verify_CheckoutOverview.cy.js",
+      "file": "cypress\\e2e\\testScripts\\Verify_CheckoutOverview.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "75e9d251-bb5f-4d39-be08-bce0f50130ae",
+          "title": "product page",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Validating selected product is present in the checkout page",
+              "fullTitle": "product page Validating selected product is present in the checkout page",
+              "timedOut": null,
+              "duration": 6739,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const productpage = new _productPage.ProductPage();\nconst yourcartpage = new _YourCartPage.YourCartPage();\nconst informationpage = new _InformationPage.InformationPage();\nconst checkoutoverview = new _Checkout_OverviewPage.Checkout_OverviewPage();\ncy.Login(this.logindata.Username, this.logindata.Password);\nproductpage.ValidateProductPage(this.productpagedata.SuccessMessage);\nproductpage.getSelectProducts(this.productpagedata.Productname);\nproductpage.getClick_CartButton();\nyourcartpage.getValidate_CheckoutPage(this.yourcartdata.YourCartLogo);\nthis.productpagedata.Productname.forEach(element => {\n  cy.validateProduct(element);\n});\nyourcartpage.getClick_CheckoutButton();\ninformationpage.getValidate_Informationpage(this.informationpagedata.OverviewMessage);\ninformationpage.getInformation(this.informationpagedata.Firstname, this.informationpagedata.Lastname, this.informationpagedata.ZipCode);\ninformationpage.getClick_Continue();\ncheckoutoverview.getValidate_CheckoutOverview();\ncheckoutoverview.getValidate_ProductQuantity();\ncheckoutoverview.getValidate_TotalPrice();\ncheckoutoverview.getClick_FinishButton();",
+              "err": {},
+              "uuid": "c327b3fb-e853-48df-9434-944410a41b16",
+              "parentUUID": "75e9d251-bb5f-4d39-be08-bce0f50130ae",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "c327b3fb-e853-48df-9434-944410a41b16"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 6739,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "chats": true,
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/reports"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

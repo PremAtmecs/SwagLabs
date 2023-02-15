@@ -12,13 +12,13 @@ describe("product page", () => {
 
     it("Selecting multiple products", function () {
 
-        const productpage = new ProductPage()
+        const productPage = new ProductPage()
 
         cy.Login(this.logindata.Username, this.logindata.Password)
 
-        productpage.ValidateProductPage(this.productpagedata.SuccessMessage)
-        productpage.getSelectProducts(this.productpagedata.Productname)
-        productpage.getClick_CartButton()
+        productPage.ValidateProductPage(this.productpagedata.SuccessMessage)
+        productPage.getSelectProducts(this.productpagedata.Productname)
+        productPage.getClick_CartButton()
         
     })
     

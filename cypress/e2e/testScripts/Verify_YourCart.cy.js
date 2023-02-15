@@ -4,7 +4,7 @@
 import { ProductPage } from "../../Pages/productPage"
 import { YourCartPage } from "../../Pages/YourCartPage"
 
-describe("product page", () => {
+describe("Your Cart page", () => {
     beforeEach(function () {
         cy.launchApplication()
         cy.fixture("LoginCredentialsTestData").then(function (logindata) { this.logindata = logindata })
@@ -13,23 +13,23 @@ describe("product page", () => {
     })
 
 
-    it("Validating selected product is present in the checkout page", function () {
+    it("Validating selected products are present in the Your cart", function () {
 
 
-        const productpage = new ProductPage()
-        const yourcartpage = new YourCartPage()
+        const productPage = new ProductPage()
+        const yourcartPage = new YourCartPage()
 
         cy.Login(this.logindata.Username, this.logindata.Password)
 
-        productpage.ValidateProductPage(this.productpagedata.SuccessMessage)
-        productpage.getSelectProducts(this.productpagedata.Productname)
-        productpage.getClick_CartButton()
+        productPage.ValidateProductPage(this.productpagedata.SuccessMessage)
+        productPage.getSelectProducts(this.productpagedata.Productname)
+        productPage.getClick_CartButton()
         
-        yourcartpage.getValidate_CheckoutPage(this.yourcartdata.YourCartLogo)
+        yourcartPage.getValidate_CheckoutPage(this.yourcartdata.YourCartLogo)
         this.productpagedata.Productname.forEach(element => {
             cy.validateProduct(element)
         });
-        yourcartpage.getClick_CheckoutButton()
+        yourcartPage.getClick_CheckoutButton()
 
 
 

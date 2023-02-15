@@ -7,7 +7,7 @@ import { Checkout_OverviewPage } from "../../Pages/Checkout_OverviewPage"
 import { BackHomePage } from "../../Pages/BackHomePage"
 
 
-describe("product page", () => {
+describe("Back to HomePage", () => {
     beforeEach(function () {
         cy.launchApplication()
         cy.fixture("LoginCredentialsTestData").then(function (logindata) { this.logindata = logindata })
@@ -17,38 +17,38 @@ describe("product page", () => {
     })
     
 
-    it("Validating selected product is present in the checkout page", function () {
+    it("After purchasing the products, user can navigate to Homepage", function () {
 
 
-        const productpage = new ProductPage()
-        const yourcartpage = new YourCartPage()
-        const informationpage = new InformationPage()
-        const checkoutoverview = new Checkout_OverviewPage()
-        const backhome = new BackHomePage()
+        const productPage = new ProductPage()
+        const yourcartPage = new YourCartPage()
+        const informationPage = new InformationPage()
+        const checkoutOverview = new Checkout_OverviewPage()
+        const backHome = new BackHomePage()
 
         cy.Login(this.logindata.Username, this.logindata.Password)
 
-        productpage.ValidateProductPage(this.productpagedata.SuccessMessage)
-        productpage.getSelectProducts(this.productpagedata.Productname)
-        productpage.getClick_CartButton()
+        productPage.ValidateProductPage(this.productpagedata.SuccessMessage)
+        productPage.getSelectProducts(this.productpagedata.Productname)
+        productPage.getClick_CartButton()
 
-        yourcartpage.getValidate_CheckoutPage(this.yourcartdata.YourCartLogo)
+        yourcartPage.getValidate_CheckoutPage(this.yourcartdata.YourCartLogo)
         this.productpagedata.Productname.forEach(element => {
             cy.validateProduct(element)
         });
-        yourcartpage.getClick_CheckoutButton()
+        yourcartPage.getClick_CheckoutButton()
 
-        informationpage.getValidate_Informationpage(this.informationpagedata.OverviewMessage)
-        informationpage.getInformation(this.informationpagedata.Firstname, this.informationpagedata.Lastname, this.informationpagedata.ZipCode)
+        informationPage.getValidate_Informationpage(this.informationpagedata.OverviewMessage)
+        informationPage.getInformation(this.informationpagedata.Firstname, this.informationpagedata.Lastname, this.informationpagedata.ZipCode)
         informationpage.getClick_Continue()
 
-        checkoutoverview.getValidate_CheckoutOverview()
-        checkoutoverview.getValidate_ProductQuantity()
-        checkoutoverview.getValidate_TotalPrice()
-        checkoutoverview.getClick_FinishButton()
+        checkoutOverview.getValidate_CheckoutOverview()
+        checkoutOverview.getValidate_ProductQuantity()
+        checkoutOverview.getValidate_TotalPrice()
+        checkoutOverview.getClick_FinishButton()
 
-        backhome.getClick_BackHomeButton()
-        backhome.getValidate_ProductLabel(this.productpagedata.SuccessMessage)
+        backHome.getClick_BackHomeButton()
+        backHome.getValidate_ProductLabel(this.productpagedata.SuccessMessage)
 
 
     })

@@ -2,9 +2,7 @@ export class LogoutPage{
 
     Burger_Menu = '#react-burger-menu-btn'
     Logout = '#logout_sidebar_link'
-    Swaglabs_Logo = '.bot_column'
-
-    
+    Swaglabs_Logo = '.bot_column' 
 
     getClick_BurgerMenu(){
         cy.get(this.Burger_Menu).click()

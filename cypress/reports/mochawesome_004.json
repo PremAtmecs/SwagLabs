@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-02-15T12:33:09.499Z",
+    "end": "2023-02-15T12:33:14.269Z",
+    "duration": 4770,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "8ce9b1bf-8154-42f4-a614-3c3b3c9004a0",
+      "title": "",
+      "fullFile": "cypress\\e2e\\testScripts\\Verify_Login.cy.js",
+      "file": "cypress\\e2e\\testScripts\\Verify_Login.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "4bf4fb07-7634-428f-ac01-727c2f51d8c7",
+          "title": "Login suite",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "verify login",
+              "fullTitle": "Login suite verify login",
+              "timedOut": null,
+              "duration": 2059,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const productpage = new _productPage.ProductPage();\ncy.Login(this.logindata.Username, this.logindata.Password);\nproductpage.ValidateProductPage(this.logindata.SuccessMessage);",
+              "err": {},
+              "uuid": "0dc7dad4-5117-4cb6-b003-202e143f8ca1",
+              "parentUUID": "4bf4fb07-7634-428f-ac01-727c2f51d8c7",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "0dc7dad4-5117-4cb6-b003-202e143f8ca1"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2059,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "chats": true,
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/reports"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

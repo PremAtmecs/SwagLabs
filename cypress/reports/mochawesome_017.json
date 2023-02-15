@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-02-15T13:13:01.751Z",
+    "end": "2023-02-15T13:13:08.090Z",
+    "duration": 6339,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "6df64642-ad25-4e0b-9fbb-94de62e6dfeb",
+      "title": "",
+      "fullFile": "cypress\\e2e\\testScripts\\Verify_YourCart.cy.js",
+      "file": "cypress\\e2e\\testScripts\\Verify_YourCart.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "4cefbd8c-57a4-497b-a575-d1a7b1f8eb93",
+          "title": "Your Cart page",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Validating selected products are present in the Your cart",
+              "fullTitle": "Your Cart page Validating selected products are present in the Your cart",
+              "timedOut": null,
+              "duration": 4126,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const productPage = new _productPage.ProductPage();\nconst yourcartPage = new _YourCartPage.YourCartPage();\ncy.Login(this.logindata.Username, this.logindata.Password);\nproductPage.ValidateProductPage(this.productpagedata.SuccessMessage);\nproductPage.getSelectProducts(this.productpagedata.Productname);\nproductPage.getClick_CartButton();\nyourcartPage.getValidate_CheckoutPage(this.yourcartdata.YourCartLogo);\nthis.productpagedata.Productname.forEach(element => {\n  cy.validateProduct(element);\n});\nyourcartPage.getClick_CheckoutButton();",
+              "err": {},
+              "uuid": "f14e4841-8a2d-438a-a1b0-6d6bd808a908",
+              "parentUUID": "4cefbd8c-57a4-497b-a575-d1a7b1f8eb93",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "f14e4841-8a2d-438a-a1b0-6d6bd808a908"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 4126,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "chats": true,
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/reports"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

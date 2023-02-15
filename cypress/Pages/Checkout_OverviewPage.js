@@ -50,7 +50,7 @@ export class Checkout_OverviewPage{
             var Totalprice = totalItemText.split("$")
             Totalprice = Totalprice[1].trim()
             cy.log(Totalprice)
-            expect(Number(Totalprice)).to.be.equal(Number (SumofPricewithTax))
+            expect(Number (Totalprice)).to.be.equal(Number (SumofPricewithTax))
         })
     }
     getClick_FinishButton(){

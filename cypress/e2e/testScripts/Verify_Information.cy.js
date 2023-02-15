@@ -4,7 +4,7 @@
 import { InformationPage } from "../../Pages/InformationPage"
 import { ProductPage } from "../../Pages/productPage"
 import { YourCartPage } from "../../Pages/YourCartPage"
-describe("product page", () => {
+describe("Information page", () => {
     beforeEach(function () {
         cy.launchApplication()
         cy.fixture("LoginCredentialsTestData").then(function (logindata) { this.logindata = logindata })
@@ -14,27 +14,27 @@ describe("product page", () => {
     })
     
 
-    it("Validating selected product is present in the checkout page", function () {
+    it("Verify user can provide information in the Information page", function () {
         
-        const productpage = new ProductPage()
-        const yourcartpage = new YourCartPage()
-        const informationpage = new InformationPage()
+        const productPage = new ProductPage()
+        const yourcartPage = new YourCartPage()
+        const informationPage = new InformationPage()
 
         cy.Login(this.logindata.Username, this.logindata.Password)
 
-        productpage.ValidateProductPage(this.productpagedata.SuccessMessage)
-        productpage.getSelectProducts(this.productpagedata.Productname)
-        productpage.getClick_CartButton()
+        productPage.ValidateProductPage(this.productpagedata.SuccessMessage)
+        productPage.getSelectProducts(this.productpagedata.Productname)
+        productPage.getClick_CartButton()
 
-        yourcartpage.getValidate_CheckoutPage(this.yourcartdata.YourCartLogo)
+        yourcartPage.getValidate_CheckoutPage(this.yourcartdata.YourCartLogo)
         this.productpagedata.Productname.forEach(element => {
             cy.validateProduct(element)
         });
-        yourcartpage.getClick_CheckoutButton()
+        yourcartPage.getClick_CheckoutButton()
 
-        informationpage.getValidate_Informationpage(this.informationpagedata.OverviewMessage)
-        informationpage.getInformation(this.informationpagedata.Firstname, this.informationpagedata.Lastname, this.informationpagedata.ZipCode)
-        informationpage.getClick_Continue()
+        informationPage.getValidate_Informationpage(this.informationpagedata.OverviewMessage)
+        informationPage.getInformation(this.informationpagedata.Firstname, this.informationpagedata.Lastname, this.informationpagedata.ZipCode)
+        informationPage.getClick_Continue()
            
     })
     

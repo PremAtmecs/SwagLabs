@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-02-15T12:31:57.571Z",
+    "end": "2023-02-15T12:32:13.985Z",
+    "duration": 16414,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "06f2cf5a-621c-4646-a903-81ef7ade29a9",
+      "title": "",
+      "fullFile": "cypress\\e2e\\testScripts\\Verify_BackHome.cy.js",
+      "file": "cypress\\e2e\\testScripts\\Verify_BackHome.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "cdaa3dcc-26d9-49c2-a79f-85c715e330a2",
+          "title": "product page",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Validating selected product is present in the checkout page",
+              "fullTitle": "product page Validating selected product is present in the checkout page",
+              "timedOut": null,
+              "duration": 6938,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const productpage = new _productPage.ProductPage();\nconst yourcartpage = new _YourCartPage.YourCartPage();\nconst informationpage = new _InformationPage.InformationPage();\nconst checkoutoverview = new _Checkout_OverviewPage.Checkout_OverviewPage();\nconst backhome = new _BackHomePage.BackHomePage();\ncy.Login(this.logindata.Username, this.logindata.Password);\nproductpage.ValidateProductPage(this.productpagedata.SuccessMessage);\nproductpage.getSelectProducts(this.productpagedata.Productname);\nproductpage.getClick_CartButton();\nyourcartpage.getValidate_CheckoutPage(this.yourcartdata.YourCartLogo);\nthis.productpagedata.Productname.forEach(element => {\n  cy.validateProduct(element);\n});\nyourcartpage.getClick_CheckoutButton();\ninformationpage.getValidate_Informationpage(this.informationpagedata.OverviewMessage);\ninformationpage.getInformation(this.informationpagedata.Firstname, this.informationpagedata.Lastname, this.informationpagedata.ZipCode);\ninformationpage.getClick_Continue();\ncheckoutoverview.getValidate_CheckoutOverview();\ncheckoutoverview.getValidate_ProductQuantity();\ncheckoutoverview.getValidate_TotalPrice();\ncheckoutoverview.getClick_FinishButton();\nbackhome.getClick_BackHomeButton();\nbackhome.getValidate_ProductLabel(this.productpagedata.SuccessMessage);",
+              "err": {},
+              "uuid": "ffdfa38f-ff8b-4f37-b1c6-f35c7ed6b486",
+              "parentUUID": "cdaa3dcc-26d9-49c2-a79f-85c715e330a2",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "ffdfa38f-ff8b-4f37-b1c6-f35c7ed6b486"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 6938,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "chats": true,
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/reports"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

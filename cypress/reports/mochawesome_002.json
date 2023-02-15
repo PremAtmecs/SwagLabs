@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-02-15T12:32:39.322Z",
+    "end": "2023-02-15T12:32:49.846Z",
+    "duration": 10524,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "21c373e8-6691-4f79-be49-955c5f7cd8e2",
+      "title": "",
+      "fullFile": "cypress\\e2e\\testScripts\\Verify_Completepage.cy.js",
+      "file": "cypress\\e2e\\testScripts\\Verify_Completepage.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "377ec486-c622-49f6-a90c-843050169663",
+          "title": "product page",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Validating selected product is present in the checkout page",
+              "fullTitle": "product page Validating selected product is present in the checkout page",
+              "timedOut": null,
+              "duration": 7906,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const productpage = new _productPage.ProductPage();\nconst yourcartpage = new _YourCartPage.YourCartPage();\nconst informationpage = new _InformationPage.InformationPage();\nconst checkoutoverview = new _Checkout_OverviewPage.Checkout_OverviewPage();\nconst completepage = new _Checkout_CompletePage.Checkout_Completepage();\ncy.Login(this.logindata.Username, this.logindata.Password);\nproductpage.ValidateProductPage(this.productpagedata.SuccessMessage);\nproductpage.getSelectProducts(this.productpagedata.Productname);\nproductpage.getClick_CartButton();\nyourcartpage.getValidate_CheckoutPage(this.yourcartdata.YourCartLogo);\nthis.productpagedata.Productname.forEach(element => {\n  cy.validateProduct(element);\n});\nyourcartpage.getClick_CheckoutButton();\ninformationpage.getValidate_Informationpage(this.informationpagedata.OverviewMessage);\ninformationpage.getInformation(this.informationpagedata.Firstname, this.informationpagedata.Lastname, this.informationpagedata.ZipCode);\ninformationpage.getClick_Continue();\ncheckoutoverview.getValidate_CheckoutOverview();\ncheckoutoverview.getValidate_ProductQuantity();\ncheckoutoverview.getValidate_TotalPrice();\ncheckoutoverview.getClick_FinishButton();\ncompletepage.getValidate_CompleteLabel();\ncompletepage.getValidate_ThanksMessage();",
+              "err": {},
+              "uuid": "a1a6fa09-56a7-448a-984f-7a41ad490bf1",
+              "parentUUID": "377ec486-c622-49f6-a90c-843050169663",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "a1a6fa09-56a7-448a-984f-7a41ad490bf1"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 7906,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "chats": true,
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/reports"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
