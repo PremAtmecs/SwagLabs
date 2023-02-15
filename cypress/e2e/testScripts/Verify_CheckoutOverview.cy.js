@@ -1,36 +1,49 @@
 /// <reference types="cypress" />
 
+import { ProductPage } from "../../Pages/productPage"
+import { YourCartPage } from "../../Pages/YourCartPage"
+import { InformationPage } from "../../Pages/InformationPage"
+import { Checkout_OverviewPage } from "../../Pages/Checkout_OverviewPage"
 
-import { productPage } from "../../Pages/productPage"
-import { checkoutPage } from "../../Pages/checkoutPage"
 
 describe("product page", () => {
     beforeEach(function () {
         cy.launchApplication()
-        cy.fixture("SwagLabsData.json").then(function (Data) {
-            this.Data = Data
-        })
+        cy.fixture("LoginCredentialsTestData").then(function (logindata) { this.logindata = logindata })
+        cy.fixture("ProductPageTestData").then(function (productpagedata) { this.productpagedata = productpagedata })
+        cy.fixture("InformationPageTestData").then(function(informationpagedata){ this.informationpagedata = informationpagedata})
+        cy.fixture("YourCartTestData").then(function(yourcartdata){ this.yourcartdata = yourcartdata})
     })
-    const productpage = new productPage()
-    const checkoutpage = new checkoutPage()
+    
 
     it("Validating selected product is present in the checkout page", function () {
 
 
-        cy.Login(this.Data.Username, this.Data.Password) //clicking on Login button
-        productpage.getProductPage(this.Data.SuccessMessage) // validating user is successfully Logged in
-        cy.SelectProduct(this.Data.Productname) //selecting the multiple products randomly
-        productpage.getclick_CartButton() //clicking on cart button
-        checkoutpage.getvalidate_checkoutpage() //validating user is successfully navigated to checkout page
-        this.Data.Productname.forEach(element => { //validating selected products are present in the checkout page.
+        const productpage = new ProductPage()
+        const yourcartpage = new YourCartPage()
+        const informationpage = new InformationPage()
+        const checkoutoverview = new Checkout_OverviewPage()
+
+        cy.Login(this.logindata.Username, this.logindata.Password)
+
+        productpage.ValidateProductPage(this.productpagedata.SuccessMessage)
+        productpage.getSelectProducts(this.productpagedata.Productname)
+        productpage.getClick_CartButton()
+
+        yourcartpage.getValidate_CheckoutPage(this.yourcartdata.YourCartLogo)
+        this.productpagedata.Productname.forEach(element => {
             cy.validateProduct(element)
         });
-        checkoutpage.getClick_CheckoutButton()  //clicking on checkout button
-        checkoutpage.getvalidate_Informationpage(this.Data.OverviewMessage) //validating user is navigated to Information page
-        cy.getInformation(this.Data.Firstname, this.Data.Lastname, this.Data.ZipCode) //providing user details in the Information page
-        checkoutpage.getclick_Continue() //clicking on continue button
-        checkoutpage.getvalidate_checkoutOverview //validating user is navigated to overview page
-        checkoutpage.getvalidate_productQuantity()  //verifying product quantity
+        yourcartpage.getClick_CheckoutButton()
+
+        informationpage.getValidate_Informationpage(this.informationpagedata.OverviewMessage)
+        informationpage.getInformation(this.informationpagedata.Firstname, this.informationpagedata.Lastname, this.informationpagedata.ZipCode)
+        informationpage.getClick_Continue()
+
+        checkoutoverview.getValidate_CheckoutOverview()
+        checkoutoverview.getValidate_ProductQuantity()
+        checkoutoverview.getValidate_TotalPrice()
+        checkoutoverview.getClick_FinishButton()
 
 
     })

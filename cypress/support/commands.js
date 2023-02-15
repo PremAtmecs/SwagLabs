@@ -1,4 +1,4 @@
-const { loginPage } = require("../Pages/loginPage")
+const { loginPage } = require("../Pages/LoginPage")
 
 
 Cypress.Commands.add('launchApplication', () => {
@@ -27,21 +27,6 @@ Cypress.Commands.add('SelectProduct', (productName) => {
     })
 })
 
-// Cypress.Commands.add('validateProduct', (productName) => {
-//     cy.get('.inventory_item_name').each(($el, index, $list) => {
-//         const selectedproduct = $el.text()
-        
-//         for (let element of productName) {
-            
-//             if (selectedproduct == (element)) {
-//                 cy.log("correct product is selected", selectedproduct)
-//                 //expect(selectedproduct).to.be.equal(productName)
-              
-//             }
-//         }
-//     })
-// })
-
 Cypress.Commands.add('validateProduct', (productName) => {
     cy.get('.inventory_item_name').each(($el, index, $list) => {
         const selectedProduct = $el.text()
@@ -51,6 +36,12 @@ Cypress.Commands.add('validateProduct', (productName) => {
         }
     })
 })
+
+
+
+
+
+
 
 
 

@@ -9,6 +9,7 @@ describe("product page", () => {
         cy.launchApplication()
         cy.fixture("LoginCredentialsTestData").then(function (logindata) { this.logindata = logindata })
         cy.fixture("ProductPageTestData").then(function (productpagedata) { this.productpagedata = productpagedata })
+        cy.fixture("YourCartTestData").then(function(yourcartdata){ this.yourcartdata = yourcartdata})
     })
 
 
@@ -17,14 +18,18 @@ describe("product page", () => {
 
         const productpage = new ProductPage()
         const yourcartpage = new YourCartPage()
+
         cy.Login(this.logindata.Username, this.logindata.Password)
+
         productpage.ValidateProductPage(this.productpagedata.SuccessMessage)
-        cy.SelectProduct(this.productpagedata.Productname)
+        productpage.getSelectProducts(this.productpagedata.Productname)
         productpage.getClick_CartButton()
-        yourcartpage.getValidate_CheckoutPage()
+        
+        yourcartpage.getValidate_CheckoutPage(this.yourcartdata.YourCartLogo)
         this.productpagedata.Productname.forEach(element => {
             cy.validateProduct(element)
         });
+        yourcartpage.getClick_CheckoutButton()
 
 
 

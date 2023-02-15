@@ -1,41 +1,41 @@
 /// <reference types="cypress" />
 
 
-import { productPage } from "../../Pages/productPage"
-import { checkoutPage } from "../../Pages/checkoutPage"
-
+import { InformationPage } from "../../Pages/InformationPage"
+import { ProductPage } from "../../Pages/productPage"
+import { YourCartPage } from "../../Pages/YourCartPage"
 describe("product page", () => {
     beforeEach(function () {
         cy.launchApplication()
-        cy.fixture("SwagLabsData.json").then(function (Data) {
-            this.Data = Data
-        })
+        cy.fixture("LoginCredentialsTestData").then(function (logindata) { this.logindata = logindata })
+        cy.fixture("ProductPageTestData").then(function (productpagedata) { this.productpagedata = productpagedata })
+        cy.fixture("InformationPageTestData").then(function(informationpagedata){ this.informationpagedata = informationpagedata})
+        cy.fixture("YourCartTestData").then(function(yourcartdata){ this.yourcartdata = yourcartdata})
     })
-    const productpage = new productPage()
-    const checkoutpage = new checkoutPage()
-
-    it("Validating selected product is present in the checkout page", function () {
-
-        
-        cy.Login(this.Data.Username, this.Data.Password)
-        productpage.getProductPage(this.Data.SuccessMessage)
-        cy.SelectProduct(this.Data.Productname)
-        cy.wait(3000)
-        productpage.getclick_CartButton()
-        checkoutpage.getvalidate_checkoutpage()
-        this.Data.Productname.forEach(element => {
-            cy.validateProduct(element)    
-        });
-        cy.wait(3000)
-        checkoutpage.getClick_CheckoutButton()
-        checkoutpage.getvalidate_Informationpage(this.Data.OverviewMessage)
-        cy.getInformation(this.Data.Firstname, this.Data.Lastname, this.Data.ZipCode)
-        checkoutpage.getclick_Continue()
-       
-        
     
 
+    it("Validating selected product is present in the checkout page", function () {
         
+        const productpage = new ProductPage()
+        const yourcartpage = new YourCartPage()
+        const informationpage = new InformationPage()
+
+        cy.Login(this.logindata.Username, this.logindata.Password)
+
+        productpage.ValidateProductPage(this.productpagedata.SuccessMessage)
+        productpage.getSelectProducts(this.productpagedata.Productname)
+        productpage.getClick_CartButton()
+
+        yourcartpage.getValidate_CheckoutPage(this.yourcartdata.YourCartLogo)
+        this.productpagedata.Productname.forEach(element => {
+            cy.validateProduct(element)
+        });
+        yourcartpage.getClick_CheckoutButton()
+
+        informationpage.getValidate_Informationpage(this.informationpagedata.OverviewMessage)
+        informationpage.getInformation(this.informationpagedata.Firstname, this.informationpagedata.Lastname, this.informationpagedata.ZipCode)
+        informationpage.getClick_Continue()
+           
     })
     
     

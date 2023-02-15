@@ -1,8 +1,20 @@
 export class InformationPage{
-    getvalidate_Informationpage(successMessage){
-        return cy.get(".title").should('have.text', successMessage)
+
+    InformationLogo = ".title"
+    Firstname = '#first-name'
+    Lastname = '#last-name'
+    ZIP_Code = '#postal-code'
+    Continue_Button = '#continue'
+
+    getValidate_Informationpage(successMessage){
+        return cy.get(this.InformationLogo).should('have.text', successMessage)
     }
-    getclick_Continue(){
-       return cy.get('#continue').click()
+    getInformation(firstName, LastName, ZIPcode){
+        cy.get(this.Firstname).type(firstName)
+        cy.get(this.Lastname).type(LastName)
+        cy.get(this.ZIP_Code).type(ZIPcode)
+    }
+    getClick_Continue(){
+       return cy.get(this.Continue_Button).click()
     }
 }

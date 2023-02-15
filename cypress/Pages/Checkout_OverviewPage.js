@@ -1,16 +1,59 @@
 export class Checkout_OverviewPage{
-    getvalidate_checkoutOverview(){
-        cy.get('.title').should('have.text', "Checkout: Overview")
+
+    OverviewLogo = '.title'
+    Quantity = '.cart_quantity'
+    ProductPrice = '.inventory_item_price'
+    Tax = '.summary_tax_label'
+    TotalItemPrice = '.summary_total_label'
+    Finish_Button = '#finish'
+
+    getValidate_CheckoutOverview(){
+        cy.get(this.OverviewLogo).should('have.text', "Checkout: Overview")
     }
-    getvalidate_productQuantity(){
-        var sum = 0
-        cy.get('.cart_quantity').each(($el, index, $list)=>{
+    getValidate_ProductQuantity(){
+        var productQuantity = 0
+        cy.get(this.Quantity).each(($el, index, $list)=>{
            const quantity = $el.text()
            expect(quantity).to.be.equal('1')
-           sum = Number(sum) + Number(quantity)
+           productQuantity = Number(productQuantity) + Number(quantity)
            
         }).then(function(){
-            cy.log("Total Number of products in the checkout page", sum)
+            cy.log("Total Number of products in the checkout page", productQuantity)
         })
+    }
+    getValidate_TotalPrice(){
+        var TotalproductPrice = 0
+        var SumofPricewithTax = 0
+        cy.get(this.ProductPrice).each(($el, index, $list)=>{
+            const priceText = $el.text()
+            var price1 = priceText.split("$")
+            price1 = price1[1].trim()
+            cy.log(price1)
+            TotalproductPrice = Number(TotalproductPrice) + Number (price1)
+            
+        }).then(function(){
+            cy.log("Total price of the products", TotalproductPrice)
+        })
+        cy.get(this.Tax).then(function(element){
+            const taxText = element.text()
+            var taxPrice = taxText.split("$")
+            taxPrice = taxPrice[1].trim()
+            cy.log(taxPrice)
+            SumofPricewithTax = Number(taxPrice) + Number (TotalproductPrice)
+
+            
+        }).then(function(){
+            cy.log(SumofPricewithTax)
+        })
+        cy.get(this.TotalItemPrice).then(function(element){
+            const totalItemText = element.text()
+            var Totalprice = totalItemText.split("$")
+            Totalprice = Totalprice[1].trim()
+            cy.log(Totalprice)
+            expect(Number(Totalprice)).to.be.equal(Number (SumofPricewithTax))
+        })
+    }
+    getClick_FinishButton(){
+        cy.get(this.Finish_Button).click()
     }
 }

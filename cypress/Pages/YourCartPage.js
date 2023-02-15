@@ -1,9 +1,13 @@
 export class YourCartPage{
-    getValidate_CheckoutPage(){
-        cy.contains('Your Cart').should('have.text','Your Cart')
+
+    YourCartLogo = 'Your Cart'
+    CheckoutButton = '#checkout'
+
+    getValidate_CheckoutPage(Logo){
+        return cy.contains(this.YourCartLogo).should('have.text',Logo)
     }
    
     getClick_CheckoutButton(){
-        return cy.get('#checkout').click()
+        return cy.get(this.CheckoutButton).click()
     }
 }
