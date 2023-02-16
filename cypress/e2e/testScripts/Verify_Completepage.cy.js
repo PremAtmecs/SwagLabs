@@ -5,6 +5,7 @@ import { YourCartPage } from "../../Pages/YourCartPage"
 import { InformationPage } from "../../Pages/InformationPage"
 import { Checkout_OverviewPage } from "../../Pages/Checkout_OverviewPage"
 import { Checkout_Completepage } from "../../Pages/Checkout_CompletePage"
+import { LogoutPage } from "../../Pages/LogoutPage"
 
 
 describe("Complete Page", () => {
@@ -12,18 +13,19 @@ describe("Complete Page", () => {
         cy.launchApplication()
         cy.fixture("LoginCredentialsTestData").then(function (logindata) { this.logindata = logindata })
         cy.fixture("ProductPageTestData").then(function (productpagedata) { this.productpagedata = productpagedata })
-        cy.fixture("InformationPageTestData").then(function(informationpagedata){ this.informationpagedata = informationpagedata})
-        cy.fixture("YourCartTestData").then(function(yourcartdata){ this.yourcartdata = yourcartdata})
+        cy.fixture("InformationPageTestData").then(function (informationpagedata) { this.informationpagedata = informationpagedata })
+        cy.fixture("YourCartTestData").then(function (yourcartdata) { this.yourcartdata = yourcartdata })
+        cy.fixture("CheckoutOverviewTestData").then( function(overviewdata){ this.overviewdata = overviewdata})
     })
-    
-
-    it("validating Thanks message", function () {
-
         const productPage = new ProductPage()
         const yourcartPage = new YourCartPage()
         const informationPage = new InformationPage()
         const checkoutOverview = new Checkout_OverviewPage()
         const completePage = new Checkout_Completepage()
+        const logout = new LogoutPage()
+
+
+    it("validating Thanks message", function () {
 
         cy.Login(this.logindata.Username, this.logindata.Password)
 
@@ -38,19 +40,19 @@ describe("Complete Page", () => {
         yourcartPage.getClick_CheckoutButton()
 
         informationPage.getValidate_Informationpage(this.informationpagedata.OverviewMessage)
-        informationPage.getInformation(this.informationpagedata.Firstname, this.informationpagedata.Lastname, this.informationpagedata.ZipCode)    
+        informationPage.getInformation(this.informationpagedata.Firstname, this.informationpagedata.Lastname, this.informationpagedata.ZipCode)
         informationPage.getClick_Continue()
 
         checkoutOverview.getValidate_CheckoutOverview()
-        checkoutOverview.getValidate_ProductQuantity()
+        checkoutOverview.getValidate_ProductQuantity(this.overviewdata.productQuantity)
         checkoutOverview.getValidate_TotalPrice()
         checkoutOverview.getClick_FinishButton()
 
         completePage.getValidate_CompleteLabel()
         completePage.getValidate_ThanksMessage()
-        
-
-
+    })
+    after(function () {
+        logout.getValidate_Logout()
     })
 
 

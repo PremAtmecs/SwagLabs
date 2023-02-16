@@ -1,0 +1,110 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2023-02-16T06:07:43.932Z",
+    "end": "2023-02-16T06:07:48.721Z",
+    "duration": 4789,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "b2b462a4-aff8-4503-b245-e4f57422325f",
+      "title": "",
+      "fullFile": "cypress\\e2e\\testScripts\\Verify_SelectProduct.cy.js",
+      "file": "cypress\\e2e\\testScripts\\Verify_SelectProduct.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "b60adf35-7693-40ee-a0f3-fb92bd06f3ec",
+          "title": "product page",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Selecting multiple products",
+              "fullTitle": "product page Selecting multiple products",
+              "timedOut": null,
+              "duration": 118,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const productPage = new _productPage.ProductPage();\nconst logout = new _LogoutPage.LogoutPage();\ncy.Login(this.logindata.Username, this.logindata.Password);\nproductPage.ValidateProductPage(this.productpagedata.SuccessMessage);\nproductPage.getSelectProducts(this.productpagedata.Productname);\nproductPage.getClick_CartButton();",
+              "err": {
+                "message": "ReferenceError: logout is not defined\n\nBecause this error occurred during a `after all` hook we are skipping the remaining tests in the current suite: `product page`",
+                "estack": "ReferenceError: logout is not defined\n\nBecause this error occurred during a `after all` hook we are skipping the remaining tests in the current suite: `product page`\n    at Context.eval (webpack:///./cypress/e2e/testScripts/Verify_SelectProduct.cy.js:28:8)",
+                "diff": null
+              },
+              "uuid": "e3bc9f37-ec2c-43f8-b872-e2ff89fe5a21",
+              "parentUUID": "b60adf35-7693-40ee-a0f3-fb92bd06f3ec",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "e3bc9f37-ec2c-43f8-b872-e2ff89fe5a21"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 118,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "chats": true,
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/reports"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

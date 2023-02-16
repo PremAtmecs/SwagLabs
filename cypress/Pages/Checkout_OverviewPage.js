@@ -10,17 +10,19 @@ export class Checkout_OverviewPage{
     getValidate_CheckoutOverview(){
         cy.get(this.OverviewLogo).should('have.text', "Checkout: Overview")
     }
-    getValidate_ProductQuantity(){
+
+    getValidate_ProductQuantity(quants){
         var productQuantity = 0
         cy.get(this.Quantity).each(($el, index, $list)=>{
            const quantity = $el.text()
-           expect(quantity).to.be.equal('1')
+           expect(quantity).to.be.equal(quants)
            productQuantity = Number(productQuantity) + Number(quantity)
            
         }).then(function(){
             cy.log("Total Number of products in the checkout page", productQuantity)
         })
     }
+
     getValidate_TotalPrice(){
         var TotalproductPrice = 0
         var SumofPricewithTax = 0
@@ -39,20 +41,18 @@ export class Checkout_OverviewPage{
             var taxPrice = taxText.split("$")
             taxPrice = taxPrice[1].trim()
             cy.log(taxPrice)
-            SumofPricewithTax = Number(taxPrice) + Number (TotalproductPrice)
-
-            
-        }).then(function(){
-            cy.log(SumofPricewithTax)
+            SumofPricewithTax = Number(taxPrice) + Number (TotalproductPrice) 
+            cy.log(SumofPricewithTax)          
         })
         cy.get(this.TotalItemPrice).then(function(element){
             const totalItemText = element.text()
             var Totalprice = totalItemText.split("$")
             Totalprice = Totalprice[1].trim()
             cy.log(Totalprice)
-            expect(Number (Totalprice)).to.be.equal(Number (SumofPricewithTax))
+            expect(Number(Totalprice)).to.be.equal(Number(SumofPricewithTax))
         })
     }
+
     getClick_FinishButton(){
         cy.get(this.Finish_Button).click()
     }

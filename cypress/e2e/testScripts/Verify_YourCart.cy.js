@@ -1,6 +1,7 @@
 /// <reference types="cypress" />
 
 
+import { LogoutPage } from "../../Pages/LogoutPage"
 import { ProductPage } from "../../Pages/productPage"
 import { YourCartPage } from "../../Pages/YourCartPage"
 
@@ -11,13 +12,13 @@ describe("Your Cart page", () => {
         cy.fixture("ProductPageTestData").then(function (productpagedata) { this.productpagedata = productpagedata })
         cy.fixture("YourCartTestData").then(function(yourcartdata){ this.yourcartdata = yourcartdata})
     })
+    
+        const productPage = new ProductPage()
+        const yourcartPage = new YourCartPage()
+        const logout = new LogoutPage()
 
 
     it("Validating selected products are present in the Your cart", function () {
-
-
-        const productPage = new ProductPage()
-        const yourcartPage = new YourCartPage()
 
         cy.Login(this.logindata.Username, this.logindata.Password)
 
@@ -30,9 +31,9 @@ describe("Your Cart page", () => {
             cy.validateProduct(element)
         });
         yourcartPage.getClick_CheckoutButton()
-
-
-
+    })
+    after(function () {
+        logout.getValidate_Logout()
     })
 
 

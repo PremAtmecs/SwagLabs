@@ -4,15 +4,10 @@ export class LogoutPage{
     Logout = '#logout_sidebar_link'
     Swaglabs_Logo = '.bot_column' 
 
-    getClick_BurgerMenu(){
+    getValidate_Logout(){
         cy.get(this.Burger_Menu).click()
-    }
-
-    getClick_LogoutOption(){
-        cy.get(this.Logout).click()
-    }
-
-    getValidate_SwagLabLogo(){
+        cy.get(this.Logout).should('be.visible').click({force:true})
         cy.get(this.Swaglabs_Logo).should('be.visible')
+
     }
 }

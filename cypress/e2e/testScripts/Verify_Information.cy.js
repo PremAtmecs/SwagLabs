@@ -2,6 +2,7 @@
 
 
 import { InformationPage } from "../../Pages/InformationPage"
+import { LogoutPage } from "../../Pages/LogoutPage"
 import { ProductPage } from "../../Pages/productPage"
 import { YourCartPage } from "../../Pages/YourCartPage"
 describe("Information page", () => {
@@ -12,13 +13,12 @@ describe("Information page", () => {
         cy.fixture("InformationPageTestData").then(function(informationpagedata){ this.informationpagedata = informationpagedata})
         cy.fixture("YourCartTestData").then(function(yourcartdata){ this.yourcartdata = yourcartdata})
     })
-    
-
-    it("Verify user can provide information in the Information page", function () {
-        
         const productPage = new ProductPage()
         const yourcartPage = new YourCartPage()
         const informationPage = new InformationPage()
+        const logout = new LogoutPage()
+
+    it("Verify user can provide information in the Information page", function () {
 
         cy.Login(this.logindata.Username, this.logindata.Password)
 
@@ -36,6 +36,10 @@ describe("Information page", () => {
         informationPage.getInformation(this.informationpagedata.Firstname, this.informationpagedata.Lastname, this.informationpagedata.ZipCode)
         informationPage.getClick_Continue()
            
+    })
+    
+    after(function () {
+        logout.getValidate_Logout()
     })
     
     
