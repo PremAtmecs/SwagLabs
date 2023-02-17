@@ -1,12 +1,12 @@
 export class ProductPage {
-    
+
     ProductLogo = 'Products'
     ProductLabel = '.inventory_item_label'
     ProductName = 'div.inventory_item_name'
     CartLogo = '.shopping_cart_link'
 
 
-    ValidateProductPage(Product) {
+    getValidateProductPage(Product) {
         cy.contains(this.ProductLogo).then(function (element) {
             const expectedText = element.text()
             expect(expectedText).to.equal(Product)

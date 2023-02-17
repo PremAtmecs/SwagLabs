@@ -2,33 +2,33 @@
   "stats": {
     "suites": 1,
     "tests": 1,
-    "passes": 0,
+    "passes": 1,
     "pending": 0,
-    "failures": 1,
-    "start": "2023-02-16T13:02:03.125Z",
-    "end": "2023-02-16T13:02:13.259Z",
-    "duration": 10134,
+    "failures": 0,
+    "start": "2023-02-17T06:50:36.027Z",
+    "end": "2023-02-17T06:50:41.989Z",
+    "duration": 5962,
     "testsRegistered": 1,
-    "passPercent": 0,
+    "passPercent": 100,
     "pendingPercent": 0,
-    "other": 1,
-    "hasOther": true,
+    "other": 0,
+    "hasOther": false,
     "skipped": 0,
     "hasSkipped": false
   },
   "results": [
     {
-      "uuid": "0417616b-2d76-49b6-820c-eecb3112624e",
+      "uuid": "af861e0b-1c4f-4f16-8dd0-f3bd791ec139",
       "title": "",
-      "fullFile": "cypress\\e2e\\testScripts\\Verify_Information.cy.js",
-      "file": "cypress\\e2e\\testScripts\\Verify_Information.cy.js",
+      "fullFile": "cypress\\e2e\\testScripts\\Verify_UserInformation.cy.js",
+      "file": "cypress\\e2e\\testScripts\\Verify_UserInformation.cy.js",
       "beforeHooks": [],
       "afterHooks": [],
       "tests": [],
       "suites": [
         {
-          "uuid": "fe6f4173-7e0a-41ff-968c-7f2c8ec2ae84",
-          "title": "Information page",
+          "uuid": "17d7d31b-59cd-44ec-9ca4-c0db6f06405a",
+          "title": "Information page suite",
           "fullFile": "",
           "file": "",
           "beforeHooks": [],
@@ -36,35 +36,31 @@
           "tests": [
             {
               "title": "Verify user can provide information in the Information page",
-              "fullTitle": "Information page Verify user can provide information in the Information page",
+              "fullTitle": "Information page suite Verify user can provide information in the Information page",
               "timedOut": null,
-              "duration": 359,
-              "state": "failed",
-              "speed": null,
-              "pass": false,
-              "fail": true,
+              "duration": 3776,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
               "pending": false,
               "context": null,
               "code": "cy.Login(this.logindata.Username, this.logindata.Password);\nproductPage.ValidateProductPage(this.productpagedata.SuccessMessage);\nproductPage.getSelectProducts(this.productpagedata.Productname);\nproductPage.getClick_CartButton();\nyourcartPage.getValidate_CheckoutPage(this.yourcartdata.YourCartLogo);\nyourcartPage.getValidate_YourCartProducts(this.productpagedata.Productname);\nyourcartPage.getClick_CheckoutButton();\ninformationPage.getValidate_Informationpage(this.informationpagedata.OverviewMessage);\ninformationPage.getInformation(this.informationpagedata.Firstname, this.informationpagedata.Lastname, this.informationpagedata.ZipCode);\ninformationPage.getClick_Continue();",
-              "err": {
-                "message": "AssertionError: expected '<a#logout_sidebar_link.bm-item.menu-item>' to be 'visible'\n\nThis element `<a#logout_sidebar_link.bm-item.menu-item>` is not visible because its ancestor has `position: fixed` CSS property and it is overflowed by other elements. How about scrolling to the element with `cy.scrollIntoView()`?\n\nBecause this error occurred during a `after each` hook we are skipping the remaining tests in the current suite: `Information page`",
-                "estack": "AssertionError: expected '<a#logout_sidebar_link.bm-item.menu-item>' to be 'visible'\n\nThis element `<a#logout_sidebar_link.bm-item.menu-item>` is not visible because its ancestor has `position: fixed` CSS property and it is overflowed by other elements. How about scrolling to the element with `cy.scrollIntoView()`?\n\nBecause this error occurred during a `after each` hook we are skipping the remaining tests in the current suite: `Information page`\n    at LogoutPage.getClick_LogoutOption (webpack:///./cypress/Pages/LogoutPage.js:12:33)\n    at Context.eval (webpack:///./cypress/support/commands.js:37:11)",
-                "diff": null
-              },
-              "uuid": "4445d427-34a4-4e79-9e29-6a7428279c60",
-              "parentUUID": "fe6f4173-7e0a-41ff-968c-7f2c8ec2ae84",
+              "err": {},
+              "uuid": "52a57de9-343d-4007-b114-7e7215b3598c",
+              "parentUUID": "17d7d31b-59cd-44ec-9ca4-c0db6f06405a",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
-          "passes": [],
-          "failures": [
-            "4445d427-34a4-4e79-9e29-6a7428279c60"
+          "passes": [
+            "52a57de9-343d-4007-b114-7e7215b3598c"
           ],
+          "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 359,
+          "duration": 3776,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

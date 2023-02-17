@@ -2,14 +2,14 @@
   "stats": {
     "suites": 1,
     "tests": 1,
-    "passes": 0,
+    "passes": 1,
     "pending": 0,
-    "failures": 1,
-    "start": "2023-02-16T13:02:19.465Z",
-    "end": "2023-02-16T13:02:27.992Z",
-    "duration": 8527,
+    "failures": 0,
+    "start": "2023-02-17T06:50:43.955Z",
+    "end": "2023-02-17T06:50:47.868Z",
+    "duration": 3913,
     "testsRegistered": 1,
-    "passPercent": 0,
+    "passPercent": 100,
     "pendingPercent": 0,
     "other": 0,
     "hasOther": false,
@@ -18,16 +18,16 @@
   },
   "results": [
     {
-      "uuid": "789ae230-7c1b-402d-943c-f4da72771428",
+      "uuid": "433e884f-c6dd-426a-a9ab-c2e3446de970",
       "title": "",
-      "fullFile": "cypress\\e2e\\testScripts\\Verify_Login.cy.js",
-      "file": "cypress\\e2e\\testScripts\\Verify_Login.cy.js",
+      "fullFile": "cypress\\e2e\\testScripts\\Verify_UserLogin.cy.js",
+      "file": "cypress\\e2e\\testScripts\\Verify_UserLogin.cy.js",
       "beforeHooks": [],
       "afterHooks": [],
       "tests": [],
       "suites": [
         {
-          "uuid": "9f3c62e0-607a-43a9-b324-06c278618fc6",
+          "uuid": "061c204d-155e-47ea-bd69-a3ad67a6520d",
           "title": "Login suite",
           "fullFile": "",
           "file": "",
@@ -38,33 +38,29 @@
               "title": "verify login",
               "fullTitle": "Login suite verify login",
               "timedOut": null,
-              "duration": 4791,
-              "state": "failed",
-              "speed": null,
-              "pass": false,
-              "fail": true,
+              "duration": 1746,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
               "pending": false,
               "context": null,
               "code": "cy.Login(this.logindata.Username, this.logindata.Password);\nproductPage.ValidateProductPage(this.logindata.SuccessMessage);",
-              "err": {
-                "message": "AssertionError: Timed out retrying after 4000ms: expected '<a#logout_sidebar_link.bm-item.menu-item>' to be 'visible'\n\nThis element `<a#logout_sidebar_link.bm-item.menu-item>` is not visible because its parent `<div.bm-menu-wrap>` has CSS property: `display: none`\n\nBecause this error occurred during a `after each` hook we are skipping the remaining tests in the current suite: `Login suite`",
-                "estack": "AssertionError: Timed out retrying after 4000ms: expected '<a#logout_sidebar_link.bm-item.menu-item>' to be 'visible'\n\nThis element `<a#logout_sidebar_link.bm-item.menu-item>` is not visible because its parent `<div.bm-menu-wrap>` has CSS property: `display: none`\n\nBecause this error occurred during a `after each` hook we are skipping the remaining tests in the current suite: `Login suite`\n    at LogoutPage.getClick_LogoutOption (webpack:///./cypress/Pages/LogoutPage.js:12:33)\n    at Context.eval (webpack:///./cypress/support/commands.js:37:11)",
-                "diff": null
-              },
-              "uuid": "6c26256b-0ffb-49de-8ad1-f5b21fd23e06",
-              "parentUUID": "9f3c62e0-607a-43a9-b324-06c278618fc6",
+              "err": {},
+              "uuid": "07e73907-8c54-4641-9ee0-855a51da0b45",
+              "parentUUID": "061c204d-155e-47ea-bd69-a3ad67a6520d",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
-          "passes": [],
-          "failures": [
-            "6c26256b-0ffb-49de-8ad1-f5b21fd23e06"
+          "passes": [
+            "07e73907-8c54-4641-9ee0-855a51da0b45"
           ],
+          "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 4791,
+          "duration": 1746,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

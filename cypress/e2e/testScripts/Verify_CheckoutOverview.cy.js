@@ -5,7 +5,7 @@ import { YourCartPage } from "../../Pages/YourCartPage"
 import { InformationPage } from "../../Pages/InformationPage"
 import { Checkout_OverviewPage } from "../../Pages/Checkout_OverviewPage"
 
-describe("Checkout Overview page", () => {
+describe("Checkout Overview page suite", () => {
     beforeEach(function () {
         cy.launchApplication()
         cy.fixture("LoginCredentialsTestData").then(function (logindata) { this.logindata = logindata })
@@ -28,7 +28,7 @@ describe("Checkout Overview page", () => {
 
         cy.Login(this.logindata.Username, this.logindata.Password)
 
-        productPage.ValidateProductPage(this.productpagedata.SuccessMessage)
+        productPage.getValidateProductPage(this.productpagedata.SuccessMessage)
         productPage.getSelectProducts(this.productpagedata.Productname)
         productPage.getClick_CartButton()
 
@@ -40,10 +40,9 @@ describe("Checkout Overview page", () => {
         informationPage.getInformation(this.informationpagedata.Firstname, this.informationpagedata.Lastname, this.informationpagedata.ZipCode)
         informationPage.getClick_Continue()
 
-        checkoutOverview.getValidate_CheckoutOverview()
+        checkoutOverview.getValidate_CheckoutOverview(this.overviewdata.OverviewLabel)
         checkoutOverview.getValidate_ProductQuantity(this.overviewdata.productQuantity)
         checkoutOverview.getValidate_TotalPrice()
         checkoutOverview.getClick_FinishButton()
     })
-
 })

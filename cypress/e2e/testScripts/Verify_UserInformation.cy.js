@@ -4,7 +4,7 @@ import { InformationPage } from "../../Pages/InformationPage"
 import { ProductPage } from "../../Pages/productPage"
 import { YourCartPage } from "../../Pages/YourCartPage"
 
-describe("Information page", () => {
+describe("Information page suite", () => {
     beforeEach(function () {
         cy.launchApplication()
         cy.fixture("LoginCredentialsTestData").then(function (logindata) { this.logindata = logindata })
@@ -25,7 +25,7 @@ describe("Information page", () => {
 
         cy.Login(this.logindata.Username, this.logindata.Password)
 
-        productPage.ValidateProductPage(this.productpagedata.SuccessMessage)
+        productPage.getValidateProductPage(this.productpagedata.SuccessMessage)
         productPage.getSelectProducts(this.productpagedata.Productname)
         productPage.getClick_CartButton()
 
@@ -38,5 +38,4 @@ describe("Information page", () => {
         informationPage.getClick_Continue()
 
     })
-
 })

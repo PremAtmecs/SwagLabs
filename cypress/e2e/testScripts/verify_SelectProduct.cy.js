@@ -2,7 +2,7 @@
 
 import { ProductPage } from "../../Pages/productPage"
 
-describe("product page", () => {
+describe("product page suite", () => {
     beforeEach(function () {
         cy.launchApplication()
         cy.fixture("LoginCredentialsTestData").then(function (logindata) { this.logindata = logindata })
@@ -19,10 +19,9 @@ describe("product page", () => {
 
         cy.Login(this.logindata.Username, this.logindata.Password)
 
-        productPage.ValidateProductPage(this.productpagedata.SuccessMessage)
+        productPage.getValidateProductPage(this.productpagedata.SuccessMessage)
         productPage.getSelectProducts(this.productpagedata.Productname)
         productPage.getClick_CartButton()
 
     })
-
 })

@@ -7,8 +7,8 @@ export class Checkout_OverviewPage {
     TotalItemPrice = '.summary_total_label'
     Finish_Button = '#finish'
 
-    getValidate_CheckoutOverview() {
-        cy.get(this.OverviewLogo).should('have.text', "Checkout: Overview")
+    getValidate_CheckoutOverview(ExpectedText) {
+        cy.get(this.OverviewLogo).should('have.text', ExpectedText)
     }
 
     getValidate_ProductQuantity(quants) {

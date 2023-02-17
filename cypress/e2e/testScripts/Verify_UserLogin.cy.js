@@ -17,8 +17,7 @@ describe("Login suite", () => {
     it("verify login", function () {
 
         cy.Login(this.logindata.Username, this.logindata.Password)
-        productPage.ValidateProductPage(this.logindata.SuccessMessage)
+        productPage.getValidateProductPage(this.logindata.SuccessMessage)
 
     })
-
 })

@@ -3,7 +3,7 @@
 import { ProductPage } from "../../Pages/productPage"
 import { YourCartPage } from "../../Pages/YourCartPage"
 
-describe("Your Cart page", () => {
+describe("Your Cart page suite", () => {
     beforeEach(function () {
         cy.launchApplication()
         cy.fixture("LoginCredentialsTestData").then(function (logindata) { this.logindata = logindata })
@@ -22,7 +22,7 @@ describe("Your Cart page", () => {
 
         cy.Login(this.logindata.Username, this.logindata.Password)
 
-        productPage.ValidateProductPage(this.productpagedata.SuccessMessage)
+        productPage.getValidateProductPage(this.productpagedata.SuccessMessage)
         productPage.getSelectProducts(this.productpagedata.Productname)
         productPage.getClick_CartButton()
 
@@ -30,6 +30,4 @@ describe("Your Cart page", () => {
         yourcartPage.getValidate_YourCartProducts(this.productpagedata.Productname)
         yourcartPage.getClick_CheckoutButton()
     })
-
-
 })
