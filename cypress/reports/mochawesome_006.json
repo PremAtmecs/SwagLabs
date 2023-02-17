@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2023-02-15T12:33:37.034Z",
-    "end": "2023-02-15T12:33:42.700Z",
-    "duration": 5666,
+    "start": "2023-02-16T13:02:33.230Z",
+    "end": "2023-02-16T13:02:39.426Z",
+    "duration": 6196,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "bc151084-90d4-4f65-8315-8546dd52759e",
+      "uuid": "fd93cb23-6ea5-4e71-bed1-1019b252dda1",
       "title": "",
       "fullFile": "cypress\\e2e\\testScripts\\Verify_SelectProduct.cy.js",
       "file": "cypress\\e2e\\testScripts\\Verify_SelectProduct.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "cc3d4bed-509c-465a-bc76-cdd3605e6dec",
+          "uuid": "b5ef30d5-8815-4e38-8d46-afc1d8415b98",
           "title": "product page",
           "fullFile": "",
           "file": "",
@@ -38,29 +38,29 @@
               "title": "Selecting multiple products",
               "fullTitle": "product page Selecting multiple products",
               "timedOut": null,
-              "duration": 3766,
+              "duration": 3609,
               "state": "passed",
               "speed": "fast",
               "pass": true,
               "fail": false,
               "pending": false,
               "context": null,
-              "code": "const productpage = new _productPage.ProductPage();\ncy.Login(this.logindata.Username, this.logindata.Password);\nproductpage.ValidateProductPage(this.productpagedata.SuccessMessage);\nproductpage.getSelectProducts(this.productpagedata.Productname);\nproductpage.getClick_CartButton();",
+              "code": "cy.Login(this.logindata.Username, this.logindata.Password);\nproductPage.ValidateProductPage(this.productpagedata.SuccessMessage);\nproductPage.getSelectProducts(this.productpagedata.Productname);\nproductPage.getClick_CartButton();",
               "err": {},
-              "uuid": "19d8c200-0aa8-4423-a25c-a804eb005053",
-              "parentUUID": "cc3d4bed-509c-465a-bc76-cdd3605e6dec",
+              "uuid": "4975a77f-ed79-4e3d-862a-5989eef37838",
+              "parentUUID": "b5ef30d5-8815-4e38-8d46-afc1d8415b98",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "19d8c200-0aa8-4423-a25c-a804eb005053"
+            "4975a77f-ed79-4e3d-862a-5989eef37838"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 3766,
+          "duration": 3609,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

@@ -2,14 +2,14 @@
   "stats": {
     "suites": 1,
     "tests": 1,
-    "passes": 1,
+    "passes": 0,
     "pending": 0,
-    "failures": 0,
-    "start": "2023-02-15T13:12:23.056Z",
-    "end": "2023-02-15T13:12:27.581Z",
-    "duration": 4525,
+    "failures": 1,
+    "start": "2023-02-16T13:15:10.094Z",
+    "end": "2023-02-16T13:15:19.909Z",
+    "duration": 9815,
     "testsRegistered": 1,
-    "passPercent": 100,
+    "passPercent": 0,
     "pendingPercent": 0,
     "other": 0,
     "hasOther": false,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "4593ecad-9fa7-409f-9aac-d3b99d5732cd",
+      "uuid": "0da55dc9-8201-4065-983b-5685897832fb",
       "title": "",
       "fullFile": "cypress\\e2e\\testScripts\\Verify_Login.cy.js",
       "file": "cypress\\e2e\\testScripts\\Verify_Login.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "88132a6d-c1f5-4e06-86dd-8f275775fb38",
+          "uuid": "b5e707e5-d8ea-4b1f-8683-f2a4433f5aa0",
           "title": "Login suite",
           "fullFile": "",
           "file": "",
@@ -38,29 +38,33 @@
               "title": "verify login",
               "fullTitle": "Login suite verify login",
               "timedOut": null,
-              "duration": 1904,
-              "state": "passed",
-              "speed": "fast",
-              "pass": true,
-              "fail": false,
+              "duration": 4951,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
               "pending": false,
               "context": null,
-              "code": "const productPage = new _productPage.ProductPage();\ncy.Login(this.logindata.Username, this.logindata.Password);\nproductPage.ValidateProductPage(this.logindata.SuccessMessage);",
-              "err": {},
-              "uuid": "71040535-d9f8-4ec5-ad9f-78ea8091f732",
-              "parentUUID": "88132a6d-c1f5-4e06-86dd-8f275775fb38",
+              "code": "cy.Login(this.logindata.Username, this.logindata.Password);\nproductPage.ValidateProductPage(this.logindata.SuccessMessage);",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: expected '<a#logout_sidebar_link.bm-item.menu-item>' to be 'visible'\n\nThis element `<a#logout_sidebar_link.bm-item.menu-item>` is not visible because its parent `<div.bm-menu-wrap>` has CSS property: `display: none`\n\nBecause this error occurred during a `after each` hook we are skipping the remaining tests in the current suite: `Login suite`",
+                "estack": "AssertionError: Timed out retrying after 4000ms: expected '<a#logout_sidebar_link.bm-item.menu-item>' to be 'visible'\n\nThis element `<a#logout_sidebar_link.bm-item.menu-item>` is not visible because its parent `<div.bm-menu-wrap>` has CSS property: `display: none`\n\nBecause this error occurred during a `after each` hook we are skipping the remaining tests in the current suite: `Login suite`\n    at LogoutPage.getClick_LogoutOption (webpack:///./cypress/Pages/LogoutPage.js:12:33)\n    at Context.eval (webpack:///./cypress/support/commands.js:37:11)",
+                "diff": null
+              },
+              "uuid": "244d70c9-196b-4787-aea4-b2c89828da70",
+              "parentUUID": "b5e707e5-d8ea-4b1f-8683-f2a4433f5aa0",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
-          "passes": [
-            "71040535-d9f8-4ec5-ad9f-78ea8091f732"
+          "passes": [],
+          "failures": [
+            "244d70c9-196b-4787-aea4-b2c89828da70"
           ],
-          "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 1904,
+          "duration": 4951,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

@@ -2,14 +2,14 @@
   "stats": {
     "suites": 1,
     "tests": 1,
-    "passes": 0,
+    "passes": 1,
     "pending": 0,
-    "failures": 1,
-    "start": "2023-02-15T13:11:09.887Z",
-    "end": "2023-02-15T13:11:22.921Z",
-    "duration": 13034,
+    "failures": 0,
+    "start": "2023-02-16T13:14:17.391Z",
+    "end": "2023-02-16T13:14:28.657Z",
+    "duration": 11266,
     "testsRegistered": 1,
-    "passPercent": 0,
+    "passPercent": 100,
     "pendingPercent": 0,
     "other": 0,
     "hasOther": false,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "769b04c8-26ef-4acf-aab2-27022cd269ab",
+      "uuid": "a057807a-ac89-4766-a6d2-65bd63ea227b",
       "title": "",
       "fullFile": "cypress\\e2e\\testScripts\\Verify_CheckoutOverview.cy.js",
       "file": "cypress\\e2e\\testScripts\\Verify_CheckoutOverview.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "4241a0e7-e891-48ec-986a-334f089e35f4",
+          "uuid": "92b2e434-8792-4865-b037-9e5d3f000739",
           "title": "Checkout Overview page",
           "fullFile": "",
           "file": "",
@@ -38,33 +38,29 @@
               "title": "Verifying product quantity, product price and Total price",
               "fullTitle": "Checkout Overview page Verifying product quantity, product price and Total price",
               "timedOut": null,
-              "duration": 10843,
-              "state": "failed",
-              "speed": null,
-              "pass": false,
-              "fail": true,
+              "duration": 8240,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
               "pending": false,
               "context": null,
-              "code": "const productPage = new _productPage.ProductPage();\nconst yourcartPage = new _YourCartPage.YourCartPage();\nconst informationPage = new _InformationPage.InformationPage();\nconst checkoutOverview = new _Checkout_OverviewPage.Checkout_OverviewPage();\ncy.Login(this.logindata.Username, this.logindata.Password);\nproductPage.ValidateProductPage(this.productpagedata.SuccessMessage);\nproductPage.getSelectProducts(this.productpagedata.Productname);\nproductPage.getClick_CartButton();\nyourcartPage.getValidate_CheckoutPage(this.yourcartdata.YourCartLogo);\nthis.productpagedata.Productname.forEach(element => {\n  cy.validateProduct(element);\n});\nyourcartPage.getClick_CheckoutButton();\ninformationPage.getValidate_Informationpage(this.informationpagedata.OverviewMessage);\ninformationPage.getInformation(this.informationpagedata.Firstname, this.informationpagedata.Lastname, this.informationpagedata.ZipCode);\ninformationPage.getClick_Continue();\ncheckoutOverview.getValidate_CheckoutOverview();\ncheckoutOverview.getValidate_ProductQuantity();\ncheckoutOverview.getValidate_TotalPrice();\ncheckoutOverview.getClick_FinishButton();",
-              "err": {
-                "message": "AssertionError: expected 114.44 to equal 114.44000000000001",
-                "estack": "AssertionError: expected 114.44 to equal 114.44000000000001\n    at Context.eval (webpack:///./cypress/Pages/Checkout_OverviewPage.js:53:45)",
-                "diff": "- 114.44\n+ 114.44000000000001\n"
-              },
-              "uuid": "0ad4b0b4-7281-44a2-8840-663286a5b922",
-              "parentUUID": "4241a0e7-e891-48ec-986a-334f089e35f4",
+              "code": "cy.Login(this.logindata.Username, this.logindata.Password);\nproductPage.ValidateProductPage(this.productpagedata.SuccessMessage);\nproductPage.getSelectProducts(this.productpagedata.Productname);\nproductPage.getClick_CartButton();\nyourcartPage.getValidate_CheckoutPage(this.yourcartdata.YourCartLogo);\nyourcartPage.getValidate_YourCartProducts(this.productpagedata.Productname);\nyourcartPage.getClick_CheckoutButton();\ninformationPage.getValidate_Informationpage(this.informationpagedata.OverviewMessage);\ninformationPage.getInformation(this.informationpagedata.Firstname, this.informationpagedata.Lastname, this.informationpagedata.ZipCode);\ninformationPage.getClick_Continue();\ncheckoutOverview.getValidate_CheckoutOverview();\ncheckoutOverview.getValidate_ProductQuantity(this.overviewdata.productQuantity);\ncheckoutOverview.getValidate_TotalPrice();\ncheckoutOverview.getClick_FinishButton();",
+              "err": {},
+              "uuid": "c5167974-be5a-4dd3-adb7-91119b46e9ae",
+              "parentUUID": "92b2e434-8792-4865-b037-9e5d3f000739",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
-          "passes": [],
-          "failures": [
-            "0ad4b0b4-7281-44a2-8840-663286a5b922"
+          "passes": [
+            "c5167974-be5a-4dd3-adb7-91119b46e9ae"
           ],
+          "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 10843,
+          "duration": 8240,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

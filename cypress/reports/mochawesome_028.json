@@ -5,9 +5,9 @@
     "passes": 0,
     "pending": 0,
     "failures": 1,
-    "start": "2023-02-15T15:49:32.365Z",
-    "end": "2023-02-15T15:49:44.187Z",
-    "duration": 11822,
+    "start": "2023-02-17T05:32:01.795Z",
+    "end": "2023-02-17T05:32:11.431Z",
+    "duration": 9636,
     "testsRegistered": 1,
     "passPercent": 0,
     "pendingPercent": 0,
@@ -18,41 +18,41 @@
   },
   "results": [
     {
-      "uuid": "f26e9292-5374-479f-afa4-1c7e25885804",
+      "uuid": "a44434d0-d915-456d-b4e0-5ae8c9c907e9",
       "title": "",
-      "fullFile": "cypress\\e2e\\testScripts\\Verify_BackHome.cy.js",
-      "file": "cypress\\e2e\\testScripts\\Verify_BackHome.cy.js",
+      "fullFile": "cypress\\e2e\\testScripts\\Verify_Login.cy.js",
+      "file": "cypress\\e2e\\testScripts\\Verify_Login.cy.js",
       "beforeHooks": [],
       "afterHooks": [],
       "tests": [],
       "suites": [
         {
-          "uuid": "02af8833-b395-46e6-8629-4b635febd77a",
-          "title": "Back to HomePage",
+          "uuid": "d26d90e3-be58-4238-b5c1-c1ca462c3b9a",
+          "title": "Login suite",
           "fullFile": "",
           "file": "",
           "beforeHooks": [],
           "afterHooks": [],
           "tests": [
             {
-              "title": "After purchasing the products, user can navigate to Homepage",
-              "fullTitle": "Back to HomePage After purchasing the products, user can navigate to Homepage",
+              "title": "verify login",
+              "fullTitle": "Login suite verify login",
               "timedOut": null,
-              "duration": 2603,
+              "duration": 5067,
               "state": "failed",
               "speed": null,
               "pass": false,
               "fail": true,
               "pending": false,
               "context": null,
-              "code": "const productPage = new _productPage.ProductPage();\nconst yourcartPage = new _YourCartPage.YourCartPage();\nconst informationPage = new _InformationPage.InformationPage();\nconst checkoutOverview = new _Checkout_OverviewPage.Checkout_OverviewPage();\nconst backHome = new _BackHomePage.BackHomePage();\ncy.Login(this.logindata.Username, this.logindata.Password);\nproductPage.ValidateProductPage(this.productpagedata.SuccessMessage);\nproductPage.getSelectProducts(this.productpagedata.Productname);\nproductPage.getClick_CartButton();\nyourcartPage.getValidate_CheckoutPage(this.yourcartdata.YourCartLogo);\nthis.productpagedata.Productname.forEach(element => {\n  cy.validateProduct(element);\n});\nyourcartPage.getClick_CheckoutButton();\ninformationPage.getValidate_Informationpage(this.informationpagedata.OverviewMessage);\ninformationPage.getInformation(this.informationpagedata.Firstname, this.informationpagedata.Lastname, this.informationpagedata.ZipCode);\ninformationpage.getClick_Continue();\ncheckoutOverview.getValidate_CheckoutOverview();\ncheckoutOverview.getValidate_ProductQuantity();\ncheckoutOverview.getValidate_TotalPrice();\ncheckoutOverview.getClick_FinishButton();\nbackHome.getClick_BackHomeButton();\nbackHome.getValidate_ProductLabel(this.productpagedata.SuccessMessage);",
+              "code": "cy.Login(this.logindata.Username, this.logindata.Password);\nproductPage.ValidateProductPage(this.logindata.SuccessMessage);",
               "err": {
-                "message": "ReferenceError: informationpage is not defined",
-                "estack": "ReferenceError: informationpage is not defined\n    at Context.eval (webpack:///./cypress/e2e/testScripts/Verify_BackHome.cy.js:43:8)",
+                "message": "AssertionError: Timed out retrying after 4000ms: expected '<a#logout_sidebar_link.bm-item.menu-item>' to be 'visible'\n\nThis element `<a#logout_sidebar_link.bm-item.menu-item>` is not visible because its parent `<div.bm-menu-wrap>` has CSS property: `display: none`\n\nBecause this error occurred during a `after each` hook we are skipping the remaining tests in the current suite: `Login suite`",
+                "estack": "AssertionError: Timed out retrying after 4000ms: expected '<a#logout_sidebar_link.bm-item.menu-item>' to be 'visible'\n\nThis element `<a#logout_sidebar_link.bm-item.menu-item>` is not visible because its parent `<div.bm-menu-wrap>` has CSS property: `display: none`\n\nBecause this error occurred during a `after each` hook we are skipping the remaining tests in the current suite: `Login suite`\n    at LogoutPage.getClick_LogoutOption (webpack:///./cypress/Pages/LogoutPage.js:12:33)\n    at Context.eval (webpack:///./cypress/support/commands.js:35:11)",
                 "diff": null
               },
-              "uuid": "ff93674b-a17e-4976-9aba-0a580cae98e9",
-              "parentUUID": "02af8833-b395-46e6-8629-4b635febd77a",
+              "uuid": "011e5419-02c6-44b5-984e-3d0e041ebe31",
+              "parentUUID": "d26d90e3-be58-4238-b5c1-c1ca462c3b9a",
               "isHook": false,
               "skipped": false
             }
@@ -60,11 +60,11 @@
           "suites": [],
           "passes": [],
           "failures": [
-            "ff93674b-a17e-4976-9aba-0a580cae98e9"
+            "011e5419-02c6-44b5-984e-3d0e041ebe31"
           ],
           "pending": [],
           "skipped": [],
-          "duration": 2603,
+          "duration": 5067,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

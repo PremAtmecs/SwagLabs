@@ -5,9 +5,9 @@
     "passes": 0,
     "pending": 0,
     "failures": 1,
-    "start": "2023-02-15T15:46:14.255Z",
-    "end": "2023-02-15T15:46:29.680Z",
-    "duration": 15425,
+    "start": "2023-02-16T16:09:49.365Z",
+    "end": "2023-02-16T16:09:59.247Z",
+    "duration": 9882,
     "testsRegistered": 1,
     "passPercent": 0,
     "pendingPercent": 0,
@@ -18,41 +18,41 @@
   },
   "results": [
     {
-      "uuid": "6f97ece5-f70f-4e7e-9994-cb386ba0161f",
+      "uuid": "30a062a3-635d-453d-9357-c5b7f4ccbace",
       "title": "",
-      "fullFile": "cypress\\e2e\\testScripts\\Verify_CheckoutOverview.cy.js",
-      "file": "cypress\\e2e\\testScripts\\Verify_CheckoutOverview.cy.js",
+      "fullFile": "cypress\\e2e\\testScripts\\Verify_Login.cy.js",
+      "file": "cypress\\e2e\\testScripts\\Verify_Login.cy.js",
       "beforeHooks": [],
       "afterHooks": [],
       "tests": [],
       "suites": [
         {
-          "uuid": "b9666339-80e4-4c17-b1af-beef251ba5ce",
-          "title": "Checkout Overview page",
+          "uuid": "87b57d6c-e69f-45e1-988c-df81a70671b1",
+          "title": "Login suite",
           "fullFile": "",
           "file": "",
           "beforeHooks": [],
           "afterHooks": [],
           "tests": [
             {
-              "title": "Verifying product quantity, product price and Total price",
-              "fullTitle": "Checkout Overview page Verifying product quantity, product price and Total price",
+              "title": "verify login",
+              "fullTitle": "Login suite verify login",
               "timedOut": null,
-              "duration": 9402,
+              "duration": 5091,
               "state": "failed",
               "speed": null,
               "pass": false,
               "fail": true,
               "pending": false,
               "context": null,
-              "code": "const productPage = new _productPage.ProductPage();\nconst yourcartPage = new _YourCartPage.YourCartPage();\nconst informationPage = new _InformationPage.InformationPage();\nconst checkoutOverview = new _Checkout_OverviewPage.Checkout_OverviewPage();\ncy.Login(this.logindata.Username, this.logindata.Password);\nproductPage.ValidateProductPage(this.productpagedata.SuccessMessage);\nproductPage.getSelectProducts(this.productpagedata.Productname);\nproductPage.getClick_CartButton();\nyourcartPage.getValidate_CheckoutPage(this.yourcartdata.YourCartLogo);\nthis.productpagedata.Productname.forEach(element => {\n  cy.validateProduct(element);\n});\nyourcartPage.getClick_CheckoutButton();\ninformationPage.getValidate_Informationpage(this.informationpagedata.OverviewMessage);\ninformationPage.getInformation(this.informationpagedata.Firstname, this.informationpagedata.Lastname, this.informationpagedata.ZipCode);\ninformationPage.getClick_Continue();\ncheckoutOverview.getValidate_CheckoutOverview();\ncheckoutOverview.getValidate_ProductQuantity();\ncheckoutOverview.getValidate_TotalPrice();\ncheckoutOverview.getClick_FinishButton();",
+              "code": "cy.Login(this.logindata.Username, this.logindata.Password);\nproductPage.ValidateProductPage(this.logindata.SuccessMessage);",
               "err": {
-                "message": "AssertionError: expected 114.44 to equal 114.44000000000001",
-                "estack": "AssertionError: expected 114.44 to equal 114.44000000000001\n    at Context.eval (webpack:///./cypress/Pages/Checkout_OverviewPage.js:53:46)",
-                "diff": "- 114.44\n+ 114.44000000000001\n"
+                "message": "AssertionError: Timed out retrying after 4000ms: expected '<a#logout_sidebar_link.bm-item.menu-item>' to be 'visible'\n\nThis element `<a#logout_sidebar_link.bm-item.menu-item>` is not visible because its parent `<div.bm-menu-wrap>` has CSS property: `display: none`\n\nBecause this error occurred during a `after each` hook we are skipping the remaining tests in the current suite: `Login suite`",
+                "estack": "AssertionError: Timed out retrying after 4000ms: expected '<a#logout_sidebar_link.bm-item.menu-item>' to be 'visible'\n\nThis element `<a#logout_sidebar_link.bm-item.menu-item>` is not visible because its parent `<div.bm-menu-wrap>` has CSS property: `display: none`\n\nBecause this error occurred during a `after each` hook we are skipping the remaining tests in the current suite: `Login suite`\n    at LogoutPage.getClick_LogoutOption (webpack:///./cypress/Pages/LogoutPage.js:12:33)\n    at Context.eval (webpack:///./cypress/support/commands.js:35:11)",
+                "diff": null
               },
-              "uuid": "a6071e7b-4ffc-41b4-a3e8-be1206d31884",
-              "parentUUID": "b9666339-80e4-4c17-b1af-beef251ba5ce",
+              "uuid": "cc502833-c84a-474e-b23d-95ab020c7a08",
+              "parentUUID": "87b57d6c-e69f-45e1-988c-df81a70671b1",
               "isHook": false,
               "skipped": false
             }
@@ -60,11 +60,11 @@
           "suites": [],
           "passes": [],
           "failures": [
-            "a6071e7b-4ffc-41b4-a3e8-be1206d31884"
+            "cc502833-c84a-474e-b23d-95ab020c7a08"
           ],
           "pending": [],
           "skipped": [],
-          "duration": 9402,
+          "duration": 5091,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

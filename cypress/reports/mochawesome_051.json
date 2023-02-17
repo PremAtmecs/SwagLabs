@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2023-02-15T16:16:16.727Z",
-    "end": "2023-02-15T16:16:23.954Z",
-    "duration": 7227,
+    "start": "2023-02-17T05:42:31.597Z",
+    "end": "2023-02-17T05:42:36.620Z",
+    "duration": 5023,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "73b06786-e355-4ac6-896f-0392e622f0e2",
+      "uuid": "b366c78f-22f0-4bcf-b73e-3206923c0215",
       "title": "",
       "fullFile": "cypress\\e2e\\testScripts\\Verify_YourCart.cy.js",
       "file": "cypress\\e2e\\testScripts\\Verify_YourCart.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "00155fb4-5f32-45ae-b6ff-c16664e7c81c",
+          "uuid": "051388a7-9e25-4f07-91c7-572628b17fb7",
           "title": "Your Cart page",
           "fullFile": "",
           "file": "",
@@ -38,29 +38,29 @@
               "title": "Validating selected products are present in the Your cart",
               "fullTitle": "Your Cart page Validating selected products are present in the Your cart",
               "timedOut": null,
-              "duration": 4722,
+              "duration": 2743,
               "state": "passed",
               "speed": "fast",
               "pass": true,
               "fail": false,
               "pending": false,
               "context": null,
-              "code": "const productPage = new _productPage.ProductPage();\nconst yourcartPage = new _YourCartPage.YourCartPage();\ncy.Login(this.logindata.Username, this.logindata.Password);\nproductPage.ValidateProductPage(this.productpagedata.SuccessMessage);\nproductPage.getSelectProducts(this.productpagedata.Productname);\nproductPage.getClick_CartButton();\nyourcartPage.getValidate_CheckoutPage(this.yourcartdata.YourCartLogo);\nthis.productpagedata.Productname.forEach(element => {\n  cy.validateProduct(element);\n});\nyourcartPage.getClick_CheckoutButton();",
+              "code": "cy.Login(this.logindata.Username, this.logindata.Password);\nproductPage.ValidateProductPage(this.productpagedata.SuccessMessage);\nproductPage.getSelectProducts(this.productpagedata.Productname);\nproductPage.getClick_CartButton();\nyourcartPage.getValidate_CheckoutPage(this.yourcartdata.YourCartLogo);\nyourcartPage.getValidate_YourCartProducts(this.productpagedata.Productname);\nyourcartPage.getClick_CheckoutButton();",
               "err": {},
-              "uuid": "61d3cc97-a2ad-4d55-a839-27beabe5e243",
-              "parentUUID": "00155fb4-5f32-45ae-b6ff-c16664e7c81c",
+              "uuid": "adb31bb2-0658-4408-a6e5-ea7454c31f60",
+              "parentUUID": "051388a7-9e25-4f07-91c7-572628b17fb7",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "61d3cc97-a2ad-4d55-a839-27beabe5e243"
+            "adb31bb2-0658-4408-a6e5-ea7454c31f60"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 4722,
+          "duration": 2743,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

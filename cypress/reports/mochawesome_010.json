@@ -2,14 +2,14 @@
   "stats": {
     "suites": 1,
     "tests": 1,
-    "passes": 0,
+    "passes": 1,
     "pending": 0,
-    "failures": 1,
-    "start": "2023-02-15T13:10:52.467Z",
-    "end": "2023-02-15T13:11:01.394Z",
-    "duration": 8927,
+    "failures": 0,
+    "start": "2023-02-16T13:13:53.019Z",
+    "end": "2023-02-16T13:14:09.061Z",
+    "duration": 16042,
     "testsRegistered": 1,
-    "passPercent": 0,
+    "passPercent": 100,
     "pendingPercent": 0,
     "other": 0,
     "hasOther": false,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "66d58ba2-72da-4474-9177-37f9085890ce",
+      "uuid": "b2f44ec1-537c-4ef4-907f-1e971a8e504f",
       "title": "",
       "fullFile": "cypress\\e2e\\testScripts\\Verify_BackHome.cy.js",
       "file": "cypress\\e2e\\testScripts\\Verify_BackHome.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "5283e8db-d3d3-422e-988a-41dec583670e",
+          "uuid": "2f81de2e-1f02-490a-8ab5-dd5e2c71e5c4",
           "title": "Back to HomePage",
           "fullFile": "",
           "file": "",
@@ -38,33 +38,29 @@
               "title": "After purchasing the products, user can navigate to Homepage",
               "fullTitle": "Back to HomePage After purchasing the products, user can navigate to Homepage",
               "timedOut": null,
-              "duration": 3042,
-              "state": "failed",
-              "speed": null,
-              "pass": false,
-              "fail": true,
+              "duration": 10943,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
               "pending": false,
               "context": null,
-              "code": "const productPage = new _productPage.ProductPage();\nconst yourcartPage = new _YourCartPage.YourCartPage();\nconst informationPage = new _InformationPage.InformationPage();\nconst checkoutOverview = new _Checkout_OverviewPage.Checkout_OverviewPage();\nconst backHome = new _BackHomePage.BackHomePage();\ncy.Login(this.logindata.Username, this.logindata.Password);\nproductPage.ValidateProductPage(this.productpagedata.SuccessMessage);\nproductPage.getSelectProducts(this.productpagedata.Productname);\nproductPage.getClick_CartButton();\nyourcartPage.getValidate_CheckoutPage(this.yourcartdata.YourCartLogo);\nthis.productpagedata.Productname.forEach(element => {\n  cy.validateProduct(element);\n});\nyourcartPage.getClick_CheckoutButton();\ninformationPage.getValidate_Informationpage(this.informationpagedata.OverviewMessage);\ninformationPage.getInformation(this.informationpagedata.Firstname, this.informationpagedata.Lastname, this.informationpagedata.ZipCode);\ninformationpage.getClick_Continue();\ncheckoutOverview.getValidate_CheckoutOverview();\ncheckoutOverview.getValidate_ProductQuantity();\ncheckoutOverview.getValidate_TotalPrice();\ncheckoutOverview.getClick_FinishButton();\nbackHome.getClick_BackHomeButton();\nbackHome.getValidate_ProductLabel(this.productpagedata.SuccessMessage);",
-              "err": {
-                "message": "ReferenceError: informationpage is not defined",
-                "estack": "ReferenceError: informationpage is not defined\n    at Context.eval (webpack:///./cypress/e2e/testScripts/Verify_BackHome.cy.js:43:8)",
-                "diff": null
-              },
-              "uuid": "638451b1-9596-4aa9-b31b-3d4a92229b03",
-              "parentUUID": "5283e8db-d3d3-422e-988a-41dec583670e",
+              "code": "cy.Login(this.logindata.Username, this.logindata.Password);\nproductPage.ValidateProductPage(this.productpagedata.SuccessMessage);\nproductPage.getSelectProducts(this.productpagedata.Productname);\nproductPage.getClick_CartButton();\nyourcartPage.getValidate_CheckoutPage(this.yourcartdata.YourCartLogo);\nyourcartPage.getValidate_YourCartProducts(this.productpagedata.Productname);\nyourcartPage.getClick_CheckoutButton();\ninformationPage.getValidate_Informationpage(this.informationpagedata.OverviewMessage);\ninformationPage.getInformation(this.informationpagedata.Firstname, this.informationpagedata.Lastname, this.informationpagedata.ZipCode);\ninformationPage.getClick_Continue();\ncheckoutOverview.getValidate_CheckoutOverview();\ncheckoutOverview.getValidate_ProductQuantity(this.overviewdata.productQuantity);\ncheckoutOverview.getValidate_TotalPrice();\ncheckoutOverview.getClick_FinishButton();\nbackHome.getClick_BackHomeButton();\nbackHome.getValidate_ProductLabel(this.productpagedata.SuccessMessage);",
+              "err": {},
+              "uuid": "0c7a0185-f53e-4ec5-8d31-b7026dc2575c",
+              "parentUUID": "2f81de2e-1f02-490a-8ab5-dd5e2c71e5c4",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
-          "passes": [],
-          "failures": [
-            "638451b1-9596-4aa9-b31b-3d4a92229b03"
+          "passes": [
+            "0c7a0185-f53e-4ec5-8d31-b7026dc2575c"
           ],
+          "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 3042,
+          "duration": 10943,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

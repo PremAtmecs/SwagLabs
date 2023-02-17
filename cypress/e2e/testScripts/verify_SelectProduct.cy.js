@@ -1,18 +1,19 @@
 /// <reference types="cypress" />
 
-
-import { LogoutPage } from "../../Pages/LogoutPage"
 import { ProductPage } from "../../Pages/productPage"
 
 describe("product page", () => {
     beforeEach(function () {
         cy.launchApplication()
-        cy.fixture("LoginCredentialsTestData").then(function (logindata) { this.logindata = logindata})
-        cy.fixture("ProductPageTestData").then(function (productpagedata){ this.productpagedata = productpagedata})
+        cy.fixture("LoginCredentialsTestData").then(function (logindata) { this.logindata = logindata })
+        cy.fixture("ProductPageTestData").then(function (productpagedata) { this.productpagedata = productpagedata })
     })
-    
-        const productPage = new ProductPage()
-        const logout = new LogoutPage()
+
+    afterEach(function () {
+        cy.Logout()
+    })
+
+    const productPage = new ProductPage()
 
     it("Selecting multiple products", function () {
 
@@ -21,12 +22,7 @@ describe("product page", () => {
         productPage.ValidateProductPage(this.productpagedata.SuccessMessage)
         productPage.getSelectProducts(this.productpagedata.Productname)
         productPage.getClick_CartButton()
-        
+
     })
 
-    after(function () {
-        logout.getValidate_Logout()
-    })
-    
-    
 })

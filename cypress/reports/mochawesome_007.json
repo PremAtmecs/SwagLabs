@@ -2,23 +2,23 @@
   "stats": {
     "suites": 1,
     "tests": 1,
-    "passes": 1,
+    "passes": 0,
     "pending": 0,
-    "failures": 0,
-    "start": "2023-02-15T12:33:48.361Z",
-    "end": "2023-02-15T12:33:54.653Z",
-    "duration": 6292,
+    "failures": 1,
+    "start": "2023-02-16T13:02:45.292Z",
+    "end": "2023-02-16T13:02:55.537Z",
+    "duration": 10245,
     "testsRegistered": 1,
-    "passPercent": 100,
+    "passPercent": 0,
     "pendingPercent": 0,
-    "other": 0,
-    "hasOther": false,
+    "other": 1,
+    "hasOther": true,
     "skipped": 0,
     "hasSkipped": false
   },
   "results": [
     {
-      "uuid": "88977650-3de2-41b6-ada2-ce6141d7b014",
+      "uuid": "cf3d53c6-1a4e-472a-82ec-81d8bc327e60",
       "title": "",
       "fullFile": "cypress\\e2e\\testScripts\\Verify_YourCart.cy.js",
       "file": "cypress\\e2e\\testScripts\\Verify_YourCart.cy.js",
@@ -27,40 +27,44 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "3d5ebd94-c44a-4f80-8669-c16b6c89b2f7",
-          "title": "product page",
+          "uuid": "93696314-a5dd-40c6-b727-bea65df03e73",
+          "title": "Your Cart page",
           "fullFile": "",
           "file": "",
           "beforeHooks": [],
           "afterHooks": [],
           "tests": [
             {
-              "title": "Validating selected product is present in the checkout page",
-              "fullTitle": "product page Validating selected product is present in the checkout page",
+              "title": "Validating selected products are present in the Your cart",
+              "fullTitle": "Your Cart page Validating selected products are present in the Your cart",
               "timedOut": null,
-              "duration": 3920,
-              "state": "passed",
-              "speed": "fast",
-              "pass": true,
-              "fail": false,
+              "duration": 351,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
               "pending": false,
               "context": null,
-              "code": "const productpage = new _productPage.ProductPage();\nconst yourcartpage = new _YourCartPage.YourCartPage();\ncy.Login(this.logindata.Username, this.logindata.Password);\nproductpage.ValidateProductPage(this.productpagedata.SuccessMessage);\nproductpage.getSelectProducts(this.productpagedata.Productname);\nproductpage.getClick_CartButton();\nyourcartpage.getValidate_CheckoutPage(this.yourcartdata.YourCartLogo);\nthis.productpagedata.Productname.forEach(element => {\n  cy.validateProduct(element);\n});\nyourcartpage.getClick_CheckoutButton();",
-              "err": {},
-              "uuid": "a726b118-371f-4a9e-98f3-78525b5c4ba7",
-              "parentUUID": "3d5ebd94-c44a-4f80-8669-c16b6c89b2f7",
+              "code": "cy.Login(this.logindata.Username, this.logindata.Password);\nproductPage.ValidateProductPage(this.productpagedata.SuccessMessage);\nproductPage.getSelectProducts(this.productpagedata.Productname);\nproductPage.getClick_CartButton();\nyourcartPage.getValidate_CheckoutPage(this.yourcartdata.YourCartLogo);\nyourcartPage.getValidate_YourCartProducts(this.productpagedata.Productname);\nyourcartPage.getClick_CheckoutButton();",
+              "err": {
+                "message": "AssertionError: expected '<a#logout_sidebar_link.bm-item.menu-item>' to be 'visible'\n\nThis element `<a#logout_sidebar_link.bm-item.menu-item>` is not visible because its ancestor has `position: fixed` CSS property and it is overflowed by other elements. How about scrolling to the element with `cy.scrollIntoView()`?\n\nBecause this error occurred during a `after each` hook we are skipping the remaining tests in the current suite: `Your Cart page`",
+                "estack": "AssertionError: expected '<a#logout_sidebar_link.bm-item.menu-item>' to be 'visible'\n\nThis element `<a#logout_sidebar_link.bm-item.menu-item>` is not visible because its ancestor has `position: fixed` CSS property and it is overflowed by other elements. How about scrolling to the element with `cy.scrollIntoView()`?\n\nBecause this error occurred during a `after each` hook we are skipping the remaining tests in the current suite: `Your Cart page`\n    at LogoutPage.getClick_LogoutOption (webpack:///./cypress/Pages/LogoutPage.js:12:33)\n    at Context.eval (webpack:///./cypress/support/commands.js:37:11)",
+                "diff": null
+              },
+              "uuid": "285bbfd2-4e73-4e89-8f54-464612394c0b",
+              "parentUUID": "93696314-a5dd-40c6-b727-bea65df03e73",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
-          "passes": [
-            "a726b118-371f-4a9e-98f3-78525b5c4ba7"
+          "passes": [],
+          "failures": [
+            "285bbfd2-4e73-4e89-8f54-464612394c0b"
           ],
-          "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 3920,
+          "duration": 351,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

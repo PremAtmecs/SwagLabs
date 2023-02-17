@@ -1,19 +1,20 @@
-export class ProductPage{
+export class ProductPage {
+    
     ProductLogo = 'Products'
     ProductLabel = '.inventory_item_label'
     ProductName = 'div.inventory_item_name'
     CartLogo = '.shopping_cart_link'
 
 
-    ValidateProductPage(Product){
-         cy.contains(this.ProductLogo).then(function(element){
+    ValidateProductPage(Product) {
+        cy.contains(this.ProductLogo).then(function (element) {
             const expectedText = element.text()
             expect(expectedText).to.equal(Product)
             cy.log("Logged in successfully")
-         })
+        })
     }
 
-    getSelectProducts(productName){
+    getSelectProducts(productName) {
         cy.get(this.ProductLabel).each(($el, index, $list) => {
             const textproduct = $el.find(this.ProductName).text()
             for (let element of productName) {
@@ -25,8 +26,8 @@ export class ProductPage{
             }
         })
     }
-    
-    getClick_CartButton(){
+
+    getClick_CartButton() {
         return cy.get(this.CartLogo).click()
     }
 

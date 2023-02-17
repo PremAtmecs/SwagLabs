@@ -5,8 +5,6 @@ import { YourCartPage } from "../../Pages/YourCartPage"
 import { InformationPage } from "../../Pages/InformationPage"
 import { Checkout_OverviewPage } from "../../Pages/Checkout_OverviewPage"
 import { BackHomePage } from "../../Pages/BackHomePage"
-import { LogoutPage } from "../../Pages/LogoutPage"
-
 
 describe("Back to HomePage", () => {
     beforeEach(function () {
@@ -15,7 +13,11 @@ describe("Back to HomePage", () => {
         cy.fixture("ProductPageTestData").then(function (productpagedata) { this.productpagedata = productpagedata })
         cy.fixture("InformationPageTestData").then(function (informationpagedata) { this.informationpagedata = informationpagedata })
         cy.fixture("YourCartTestData").then(function (yourcartdata) { this.yourcartdata = yourcartdata })
-        cy.fixture("CheckoutOverviewTestData").then( function(overviewdata){ this.overviewdata = overviewdata})
+        cy.fixture("CheckoutOverviewTestData").then(function (overviewdata) { this.overviewdata = overviewdata })
+    })
+
+    afterEach(function () {
+        cy.Logout()
     })
 
     const productPage = new ProductPage()
@@ -23,8 +25,6 @@ describe("Back to HomePage", () => {
     const informationPage = new InformationPage()
     const checkoutOverview = new Checkout_OverviewPage()
     const backHome = new BackHomePage()
-    const logout = new LogoutPage()
-
 
     it("After purchasing the products, user can navigate to Homepage", function () {
 
@@ -35,9 +35,7 @@ describe("Back to HomePage", () => {
         productPage.getClick_CartButton()
 
         yourcartPage.getValidate_CheckoutPage(this.yourcartdata.YourCartLogo)
-        this.productpagedata.Productname.forEach(element => {
-            cy.validateProduct(element)
-        });
+        yourcartPage.getValidate_YourCartProducts(this.productpagedata.Productname)
         yourcartPage.getClick_CheckoutButton()
 
         informationPage.getValidate_Informationpage(this.informationpagedata.OverviewMessage)
@@ -52,10 +50,5 @@ describe("Back to HomePage", () => {
         backHome.getClick_BackHomeButton()
         backHome.getValidate_ProductLabel(this.productpagedata.SuccessMessage)
     })
-    after(function () {
-        logout.getValidate_Logout()
-
-    })
-
 
 })

@@ -2,14 +2,14 @@
   "stats": {
     "suites": 1,
     "tests": 1,
-    "passes": 0,
+    "passes": 1,
     "pending": 0,
-    "failures": 1,
-    "start": "2023-02-15T13:11:32.981Z",
-    "end": "2023-02-15T13:11:52.267Z",
-    "duration": 19286,
+    "failures": 0,
+    "start": "2023-02-16T13:14:35.746Z",
+    "end": "2023-02-16T13:14:46.672Z",
+    "duration": 10926,
     "testsRegistered": 1,
-    "passPercent": 0,
+    "passPercent": 100,
     "pendingPercent": 0,
     "other": 0,
     "hasOther": false,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "583605d4-50f3-464c-9fbd-1b6664af8f4a",
+      "uuid": "b99ad58f-1739-4be3-8363-235de95c4590",
       "title": "",
       "fullFile": "cypress\\e2e\\testScripts\\Verify_Completepage.cy.js",
       "file": "cypress\\e2e\\testScripts\\Verify_Completepage.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "7dcf20fc-507d-4805-bd40-fa7582bc0a9d",
+          "uuid": "2d414b08-6f3e-4ca8-8b1b-d403294aef42",
           "title": "Complete Page",
           "fullFile": "",
           "file": "",
@@ -38,33 +38,29 @@
               "title": "validating Thanks message",
               "fullTitle": "Complete Page validating Thanks message",
               "timedOut": null,
-              "duration": 15717,
-              "state": "failed",
-              "speed": null,
-              "pass": false,
-              "fail": true,
+              "duration": 7942,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
               "pending": false,
               "context": null,
-              "code": "const productPage = new _productPage.ProductPage();\nconst yourcartPage = new _YourCartPage.YourCartPage();\nconst informationPage = new _InformationPage.InformationPage();\nconst checkoutOverview = new _Checkout_OverviewPage.Checkout_OverviewPage();\nconst completePage = new _Checkout_CompletePage.Checkout_Completepage();\ncy.Login(this.logindata.Username, this.logindata.Password);\nproductPage.ValidateProductPage(this.productpagedata.SuccessMessage);\nproductPage.getSelectProducts(this.productpagedata.Productname);\nproductPage.getClick_CartButton();\nyourcartPage.getValidate_CheckoutPage(this.yourcartdata.YourCartLogo);\nthis.productpagedata.Productname.forEach(element => {\n  cy.validateProduct(element);\n});\nyourcartPage.getClick_CheckoutButton();\ninformationPage.getValidate_Informationpage(this.informationpagedata.OverviewMessage);\ninformationPage.getInformation(this.informationpagedata.Firstname, this.informationpagedata.Lastname, this.informationpagedata.ZipCode);\ninformationPage.getClick_Continue();\ncheckoutOverview.getValidate_CheckoutOverview();\ncheckoutOverview.getValidate_ProductQuantity();\ncheckoutOverview.getValidate_TotalPrice();\ncheckoutOverview.getClick_FinishButton();\ncompletePage.getValidate_CompleteLabel();\ncompletePage.getValidate_ThanksMessage();",
-              "err": {
-                "message": "AssertionError: expected 114.44 to equal 114.44000000000001",
-                "estack": "AssertionError: expected 114.44 to equal 114.44000000000001\n    at Context.eval (webpack:///./cypress/Pages/Checkout_OverviewPage.js:53:45)",
-                "diff": "- 114.44\n+ 114.44000000000001\n"
-              },
-              "uuid": "8e0b1994-90da-43e1-b8d7-3f974f3cd21f",
-              "parentUUID": "7dcf20fc-507d-4805-bd40-fa7582bc0a9d",
+              "code": "cy.Login(this.logindata.Username, this.logindata.Password);\nproductPage.ValidateProductPage(this.productpagedata.SuccessMessage);\nproductPage.getSelectProducts(this.productpagedata.Productname);\nproductPage.getClick_CartButton();\nyourcartPage.getValidate_CheckoutPage(this.yourcartdata.YourCartLogo);\nyourcartPage.getValidate_YourCartProducts(this.productpagedata.Productname);\nyourcartPage.getClick_CheckoutButton();\ninformationPage.getValidate_Informationpage(this.informationpagedata.OverviewMessage);\ninformationPage.getInformation(this.informationpagedata.Firstname, this.informationpagedata.Lastname, this.informationpagedata.ZipCode);\ninformationPage.getClick_Continue();\ncheckoutOverview.getValidate_CheckoutOverview();\ncheckoutOverview.getValidate_ProductQuantity(this.overviewdata.productQuantity);\ncheckoutOverview.getValidate_TotalPrice();\ncheckoutOverview.getClick_FinishButton();\ncompletePage.getValidate_CompleteLabel();\ncompletePage.getValidate_ThanksMessage();",
+              "err": {},
+              "uuid": "e73141e9-ab75-4cd2-a8ea-8bd4e36ecd0e",
+              "parentUUID": "2d414b08-6f3e-4ca8-8b1b-d403294aef42",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
-          "passes": [],
-          "failures": [
-            "8e0b1994-90da-43e1-b8d7-3f974f3cd21f"
+          "passes": [
+            "e73141e9-ab75-4cd2-a8ea-8bd4e36ecd0e"
           ],
+          "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 15717,
+          "duration": 7942,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

@@ -2,23 +2,23 @@
   "stats": {
     "suites": 1,
     "tests": 1,
-    "passes": 1,
+    "passes": 0,
     "pending": 0,
-    "failures": 0,
-    "start": "2023-02-15T12:31:57.571Z",
-    "end": "2023-02-15T12:32:13.985Z",
-    "duration": 16414,
+    "failures": 1,
+    "start": "2023-02-16T12:56:16.010Z",
+    "end": "2023-02-16T12:56:26.510Z",
+    "duration": 10500,
     "testsRegistered": 1,
-    "passPercent": 100,
+    "passPercent": 0,
     "pendingPercent": 0,
-    "other": 0,
-    "hasOther": false,
+    "other": 1,
+    "hasOther": true,
     "skipped": 0,
     "hasSkipped": false
   },
   "results": [
     {
-      "uuid": "06f2cf5a-621c-4646-a903-81ef7ade29a9",
+      "uuid": "34d794dd-545c-48c4-a32e-3d9da5327964",
       "title": "",
       "fullFile": "cypress\\e2e\\testScripts\\Verify_BackHome.cy.js",
       "file": "cypress\\e2e\\testScripts\\Verify_BackHome.cy.js",
@@ -27,40 +27,44 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "cdaa3dcc-26d9-49c2-a79f-85c715e330a2",
-          "title": "product page",
+          "uuid": "8d9df993-329c-4387-971f-c8ccdd197b2b",
+          "title": "Back to HomePage",
           "fullFile": "",
           "file": "",
           "beforeHooks": [],
           "afterHooks": [],
           "tests": [
             {
-              "title": "Validating selected product is present in the checkout page",
-              "fullTitle": "product page Validating selected product is present in the checkout page",
+              "title": "After purchasing the products, user can navigate to Homepage",
+              "fullTitle": "Back to HomePage After purchasing the products, user can navigate to Homepage",
               "timedOut": null,
-              "duration": 6938,
-              "state": "passed",
-              "speed": "medium",
-              "pass": true,
-              "fail": false,
+              "duration": 363,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
               "pending": false,
               "context": null,
-              "code": "const productpage = new _productPage.ProductPage();\nconst yourcartpage = new _YourCartPage.YourCartPage();\nconst informationpage = new _InformationPage.InformationPage();\nconst checkoutoverview = new _Checkout_OverviewPage.Checkout_OverviewPage();\nconst backhome = new _BackHomePage.BackHomePage();\ncy.Login(this.logindata.Username, this.logindata.Password);\nproductpage.ValidateProductPage(this.productpagedata.SuccessMessage);\nproductpage.getSelectProducts(this.productpagedata.Productname);\nproductpage.getClick_CartButton();\nyourcartpage.getValidate_CheckoutPage(this.yourcartdata.YourCartLogo);\nthis.productpagedata.Productname.forEach(element => {\n  cy.validateProduct(element);\n});\nyourcartpage.getClick_CheckoutButton();\ninformationpage.getValidate_Informationpage(this.informationpagedata.OverviewMessage);\ninformationpage.getInformation(this.informationpagedata.Firstname, this.informationpagedata.Lastname, this.informationpagedata.ZipCode);\ninformationpage.getClick_Continue();\ncheckoutoverview.getValidate_CheckoutOverview();\ncheckoutoverview.getValidate_ProductQuantity();\ncheckoutoverview.getValidate_TotalPrice();\ncheckoutoverview.getClick_FinishButton();\nbackhome.getClick_BackHomeButton();\nbackhome.getValidate_ProductLabel(this.productpagedata.SuccessMessage);",
-              "err": {},
-              "uuid": "ffdfa38f-ff8b-4f37-b1c6-f35c7ed6b486",
-              "parentUUID": "cdaa3dcc-26d9-49c2-a79f-85c715e330a2",
+              "code": "cy.Login(this.logindata.Username, this.logindata.Password);\nproductPage.ValidateProductPage(this.productpagedata.SuccessMessage);\nproductPage.getSelectProducts(this.productpagedata.Productname);\nproductPage.getClick_CartButton();\nyourcartPage.getValidate_CheckoutPage(this.yourcartdata.YourCartLogo);\nyourcartPage.getValidate_YourCartProducts(this.productpagedata.Productname);\nyourcartPage.getClick_CheckoutButton();\ninformationPage.getValidate_Informationpage(this.informationpagedata.OverviewMessage);\ninformationPage.getInformation(this.informationpagedata.Firstname, this.informationpagedata.Lastname, this.informationpagedata.ZipCode);\ninformationPage.getClick_Continue();\ncheckoutOverview.getValidate_CheckoutOverview();\ncheckoutOverview.getValidate_ProductQuantity(this.overviewdata.productQuantity);\ncheckoutOverview.getValidate_TotalPrice();\ncheckoutOverview.getClick_FinishButton();\nbackHome.getClick_BackHomeButton();\nbackHome.getValidate_ProductLabel(this.productpagedata.SuccessMessage);",
+              "err": {
+                "message": "AssertionError: expected '<a#logout_sidebar_link.bm-item.menu-item>' to be 'visible'\n\nThis element `<a#logout_sidebar_link.bm-item.menu-item>` is not visible because its ancestor has `position: fixed` CSS property and it is overflowed by other elements. How about scrolling to the element with `cy.scrollIntoView()`?\n\nBecause this error occurred during a `after each` hook we are skipping the remaining tests in the current suite: `Back to HomePage`",
+                "estack": "AssertionError: expected '<a#logout_sidebar_link.bm-item.menu-item>' to be 'visible'\n\nThis element `<a#logout_sidebar_link.bm-item.menu-item>` is not visible because its ancestor has `position: fixed` CSS property and it is overflowed by other elements. How about scrolling to the element with `cy.scrollIntoView()`?\n\nBecause this error occurred during a `after each` hook we are skipping the remaining tests in the current suite: `Back to HomePage`\n    at LogoutPage.getClick_LogoutOption (webpack:///./cypress/Pages/LogoutPage.js:12:33)\n    at Context.eval (webpack:///./cypress/support/commands.js:37:11)",
+                "diff": null
+              },
+              "uuid": "8bb60647-a497-4c51-9aae-9d7ae69af0a8",
+              "parentUUID": "8d9df993-329c-4387-971f-c8ccdd197b2b",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
-          "passes": [
-            "ffdfa38f-ff8b-4f37-b1c6-f35c7ed6b486"
+          "passes": [],
+          "failures": [
+            "8bb60647-a497-4c51-9aae-9d7ae69af0a8"
           ],
-          "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 6938,
+          "duration": 363,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

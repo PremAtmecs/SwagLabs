@@ -1,7 +1,5 @@
 /// <reference types="cypress" />
 
-
-import { LogoutPage } from "../../Pages/LogoutPage"
 import { ProductPage } from "../../Pages/productPage"
 import { YourCartPage } from "../../Pages/YourCartPage"
 
@@ -10,13 +8,15 @@ describe("Your Cart page", () => {
         cy.launchApplication()
         cy.fixture("LoginCredentialsTestData").then(function (logindata) { this.logindata = logindata })
         cy.fixture("ProductPageTestData").then(function (productpagedata) { this.productpagedata = productpagedata })
-        cy.fixture("YourCartTestData").then(function(yourcartdata){ this.yourcartdata = yourcartdata})
+        cy.fixture("YourCartTestData").then(function (yourcartdata) { this.yourcartdata = yourcartdata })
     })
-    
-        const productPage = new ProductPage()
-        const yourcartPage = new YourCartPage()
-        const logout = new LogoutPage()
 
+    afterEach(function () {
+        cy.Logout()
+    })
+
+    const productPage = new ProductPage()
+    const yourcartPage = new YourCartPage()
 
     it("Validating selected products are present in the Your cart", function () {
 
@@ -25,15 +25,10 @@ describe("Your Cart page", () => {
         productPage.ValidateProductPage(this.productpagedata.SuccessMessage)
         productPage.getSelectProducts(this.productpagedata.Productname)
         productPage.getClick_CartButton()
-        
+
         yourcartPage.getValidate_CheckoutPage(this.yourcartdata.YourCartLogo)
-        this.productpagedata.Productname.forEach(element => {
-            cy.validateProduct(element)
-        });
+        yourcartPage.getValidate_YourCartProducts(this.productpagedata.Productname)
         yourcartPage.getClick_CheckoutButton()
-    })
-    after(function () {
-        logout.getValidate_Logout()
     })
 
 

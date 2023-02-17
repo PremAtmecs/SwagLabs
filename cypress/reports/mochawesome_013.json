@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2023-02-15T13:12:05.799Z",
-    "end": "2023-02-15T13:12:16.297Z",
-    "duration": 10498,
+    "start": "2023-02-16T13:14:53.289Z",
+    "end": "2023-02-16T13:15:03.457Z",
+    "duration": 10168,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "75d5ab9f-2b53-4cb8-9d36-56682b04fc51",
+      "uuid": "ba434b7f-08d1-4636-a0b9-866275900750",
       "title": "",
       "fullFile": "cypress\\e2e\\testScripts\\Verify_Information.cy.js",
       "file": "cypress\\e2e\\testScripts\\Verify_Information.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "3b03442a-c3de-49c8-aadf-e4c52706020e",
+          "uuid": "6040b1ea-c07a-44e1-8a57-6227ca2a9b74",
           "title": "Information page",
           "fullFile": "",
           "file": "",
@@ -38,29 +38,29 @@
               "title": "Verify user can provide information in the Information page",
               "fullTitle": "Information page Verify user can provide information in the Information page",
               "timedOut": null,
-              "duration": 7856,
+              "duration": 7146,
               "state": "passed",
               "speed": "medium",
               "pass": true,
               "fail": false,
               "pending": false,
               "context": null,
-              "code": "const productPage = new _productPage.ProductPage();\nconst yourcartPage = new _YourCartPage.YourCartPage();\nconst informationPage = new _InformationPage.InformationPage();\ncy.Login(this.logindata.Username, this.logindata.Password);\nproductPage.ValidateProductPage(this.productpagedata.SuccessMessage);\nproductPage.getSelectProducts(this.productpagedata.Productname);\nproductPage.getClick_CartButton();\nyourcartPage.getValidate_CheckoutPage(this.yourcartdata.YourCartLogo);\nthis.productpagedata.Productname.forEach(element => {\n  cy.validateProduct(element);\n});\nyourcartPage.getClick_CheckoutButton();\ninformationPage.getValidate_Informationpage(this.informationpagedata.OverviewMessage);\ninformationPage.getInformation(this.informationpagedata.Firstname, this.informationpagedata.Lastname, this.informationpagedata.ZipCode);\ninformationPage.getClick_Continue();",
+              "code": "cy.Login(this.logindata.Username, this.logindata.Password);\nproductPage.ValidateProductPage(this.productpagedata.SuccessMessage);\nproductPage.getSelectProducts(this.productpagedata.Productname);\nproductPage.getClick_CartButton();\nyourcartPage.getValidate_CheckoutPage(this.yourcartdata.YourCartLogo);\nyourcartPage.getValidate_YourCartProducts(this.productpagedata.Productname);\nyourcartPage.getClick_CheckoutButton();\ninformationPage.getValidate_Informationpage(this.informationpagedata.OverviewMessage);\ninformationPage.getInformation(this.informationpagedata.Firstname, this.informationpagedata.Lastname, this.informationpagedata.ZipCode);\ninformationPage.getClick_Continue();",
               "err": {},
-              "uuid": "e3c93e5a-1b5e-4a89-b1bc-3861128f4092",
-              "parentUUID": "3b03442a-c3de-49c8-aadf-e4c52706020e",
+              "uuid": "336555ee-24e3-4d37-a846-a611735a3096",
+              "parentUUID": "6040b1ea-c07a-44e1-8a57-6227ca2a9b74",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "e3c93e5a-1b5e-4a89-b1bc-3861128f4092"
+            "336555ee-24e3-4d37-a846-a611735a3096"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 7856,
+          "duration": 7146,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

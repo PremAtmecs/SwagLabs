@@ -4,8 +4,6 @@ import { ProductPage } from "../../Pages/productPage"
 import { YourCartPage } from "../../Pages/YourCartPage"
 import { InformationPage } from "../../Pages/InformationPage"
 import { Checkout_OverviewPage } from "../../Pages/Checkout_OverviewPage"
-import { LogoutPage } from "../../Pages/LogoutPage"
-
 
 describe("Checkout Overview page", () => {
     beforeEach(function () {
@@ -14,16 +12,19 @@ describe("Checkout Overview page", () => {
         cy.fixture("ProductPageTestData").then(function (productpagedata) { this.productpagedata = productpagedata })
         cy.fixture("InformationPageTestData").then(function (informationpagedata) { this.informationpagedata = informationpagedata })
         cy.fixture("YourCartTestData").then(function (yourcartdata) { this.yourcartdata = yourcartdata })
-        cy.fixture("CheckoutOverviewTestData").then( function(overviewdata){ this.overviewdata = overviewdata})
+        cy.fixture("CheckoutOverviewTestData").then(function (overviewdata) { this.overviewdata = overviewdata })
     })
 
-        const productPage = new ProductPage()
-        const yourcartPage = new YourCartPage()
-        const informationPage = new InformationPage()
-        const checkoutOverview = new Checkout_OverviewPage()
-        const logout = new LogoutPage()
+    afterEach(function () {
+        cy.Logout()
+    })
 
-    it("Verifying product quantity, product price and Total price", function () {       
+    const productPage = new ProductPage()
+    const yourcartPage = new YourCartPage()
+    const informationPage = new InformationPage()
+    const checkoutOverview = new Checkout_OverviewPage()
+
+    it("Verifying product quantity, product price and Total price", function () {
 
         cy.Login(this.logindata.Username, this.logindata.Password)
 
@@ -32,9 +33,7 @@ describe("Checkout Overview page", () => {
         productPage.getClick_CartButton()
 
         yourcartPage.getValidate_CheckoutPage(this.yourcartdata.YourCartLogo)
-        this.productpagedata.Productname.forEach(element => {
-            cy.validateProduct(element)
-        });
+        yourcartPage.getValidate_YourCartProducts(this.productpagedata.Productname)
         yourcartPage.getClick_CheckoutButton()
 
         informationPage.getValidate_Informationpage(this.informationpagedata.OverviewMessage)
@@ -46,7 +45,5 @@ describe("Checkout Overview page", () => {
         checkoutOverview.getValidate_TotalPrice()
         checkoutOverview.getClick_FinishButton()
     })
-    after(function () {
-        logout.getValidate_Logout()
-    })
+
 })

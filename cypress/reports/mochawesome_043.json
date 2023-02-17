@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2023-02-15T16:12:27.631Z",
-    "end": "2023-02-15T16:12:46.429Z",
-    "duration": 18798,
+    "start": "2023-02-17T05:38:49.855Z",
+    "end": "2023-02-17T05:38:54.354Z",
+    "duration": 4499,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,16 +18,16 @@
   },
   "results": [
     {
-      "uuid": "cd046deb-7d04-41c2-b3fb-88a6fd7bde30",
+      "uuid": "e9457b95-add3-4729-a69e-36263f408794",
       "title": "",
-      "fullFile": "cypress\\e2e\\testScripts\\Verify_Logout.cy.js",
-      "file": "cypress\\e2e\\testScripts\\Verify_Logout.cy.js",
+      "fullFile": "cypress\\e2e\\testScripts\\Verify_SelectProduct.cy.js",
+      "file": "cypress\\e2e\\testScripts\\Verify_SelectProduct.cy.js",
       "beforeHooks": [],
       "afterHooks": [],
       "tests": [],
       "suites": [
         {
-          "uuid": "d1042735-8b0b-413c-9b95-c7124821f507",
+          "uuid": "782282f7-e1b0-4b2e-bcf2-584eb6eb54d5",
           "title": "product page",
           "fullFile": "",
           "file": "",
@@ -35,32 +35,32 @@
           "afterHooks": [],
           "tests": [
             {
-              "title": "verify user can logout successfully,, after completing purchase",
-              "fullTitle": "product page verify user can logout successfully,, after completing purchase",
+              "title": "Selecting multiple products",
+              "fullTitle": "product page Selecting multiple products",
               "timedOut": null,
-              "duration": 10893,
+              "duration": 2345,
               "state": "passed",
-              "speed": "slow",
+              "speed": "fast",
               "pass": true,
               "fail": false,
               "pending": false,
               "context": null,
-              "code": "const productPage = new _productPage.ProductPage();\nconst yourcartPage = new _YourCartPage.YourCartPage();\nconst informationPage = new _InformationPage.InformationPage();\nconst checkoutOverview = new _Checkout_OverviewPage.Checkout_OverviewPage();\nconst completePage = new _Checkout_CompletePage.Checkout_Completepage();\nconst backHome = new _BackHomePage.BackHomePage();\nconst logout = new _LogoutPage.LogoutPage();\ncy.Login(this.logindata.Username, this.logindata.Password);\nproductPage.ValidateProductPage(this.productpagedata.SuccessMessage);\nproductPage.getSelectProducts(this.productpagedata.Productname);\nproductPage.getClick_CartButton();\nyourcartPage.getValidate_CheckoutPage(this.yourcartdata.YourCartLogo);\nthis.productpagedata.Productname.forEach(element => {\n  cy.validateProduct(element);\n});\nyourcartPage.getClick_CheckoutButton();\ninformationPage.getValidate_Informationpage(this.informationpagedata.OverviewMessage);\ninformationPage.getInformation(this.informationpagedata.Firstname, this.informationpagedata.Lastname, this.informationpagedata.ZipCode);\ninformationPage.getClick_Continue();\ncheckoutOverview.getValidate_CheckoutOverview();\ncheckoutOverview.getValidate_ProductQuantity();\ncheckoutOverview.getValidate_TotalPrice();\ncheckoutOverview.getClick_FinishButton();\ncompletePage.getValidate_CompleteLabel();\ncompletePage.getValidate_ThanksMessage();\nbackHome.getClick_BackHomeButton();\nbackHome.getValidate_ProductLabel(this.productpagedata.SuccessMessage);\nlogout.getClick_BurgerMenu();\nlogout.getClick_LogoutOption();\nlogout.getValidate_SwagLabLogo();",
+              "code": "cy.Login(this.logindata.Username, this.logindata.Password);\nproductPage.ValidateProductPage(this.productpagedata.SuccessMessage);\nproductPage.getSelectProducts(this.productpagedata.Productname);\nproductPage.getClick_CartButton();",
               "err": {},
-              "uuid": "303ef57e-2946-4fa0-98e3-d8d1a5cb5237",
-              "parentUUID": "d1042735-8b0b-413c-9b95-c7124821f507",
+              "uuid": "46e91f58-18ea-4cad-ba8e-acbdda223f4f",
+              "parentUUID": "782282f7-e1b0-4b2e-bcf2-584eb6eb54d5",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "303ef57e-2946-4fa0-98e3-d8d1a5cb5237"
+            "46e91f58-18ea-4cad-ba8e-acbdda223f4f"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 10893,
+          "duration": 2345,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

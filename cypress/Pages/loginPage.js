@@ -1,16 +1,18 @@
-export class loginPage{
+export class loginPage {
 
     userName = '#user-name'
     password = '#password'
     LoginButton = '#login-button'
-     
-    getUsername(){
+
+    getUsername() {
         return cy.get(this.userName)
     }
-    getPassword(){
+
+    getPassword() {
         return cy.get(this.password)
     }
-    getLogin_button(){
+
+    getLogin_button() {
         return cy.get(this.LoginButton)
     }
 }
